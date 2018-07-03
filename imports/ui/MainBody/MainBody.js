@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Item from './Item'
 import FilterBar from './FilterBar'
+import Loading from './Loading';
 
 export default class MainBody extends Component {
   render() {
@@ -19,6 +20,8 @@ export default class MainBody extends Component {
                 <Item/>
                 <Item/>
             </div>
+
+            <Loading/>
         </div>
     );
   }
