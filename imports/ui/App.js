@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import Nav from './Nav.js';
 import MainBody from './MainBody/MainBody';
+import Footer from './Footer'
 
  
 
@@ -15,6 +16,7 @@ export default class App extends Component {
       <div>
         <Nav/>
         <MainBody/>
+        <Footer/>
       </div>
 
     );

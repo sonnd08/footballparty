@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Logo from './Logo'
 
 export default class Nav extends Component {
   render() {
@@ -10,10 +10,7 @@ export default class Nav extends Component {
         <div className="container">
           <div className="content">
 
-            <div className="logoContainer">
-              <span className="logo logoName">Football</span>
-              <span className="logo logoName boldWeight">PARTY</span>
-            </div>
+            <Logo/>
 
             <div className="centerBlock">
               <input type="search" name="" className="seachInput" placeholder="Search ground, team or someone..."/>

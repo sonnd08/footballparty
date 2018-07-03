@@ -6,7 +6,10 @@ export default class Loading extends Component {
 
     return (
         <div className="loadingContainer">
-            <p className="text">Loading more...</p>
+            <p className="text">
+                <i className="icon-spinner3"></i> 
+                Loading more...
+            </p>
         </div>
     );
   }

@@ -1,9 +1,13 @@
 .loadingContainer{
     padding-top: 90px;
     padding-bottom: 90px;
+    margin-bottom: 0;
 
     .text{
         text-align: center;
         font-style: italic;
+        i{
+            font-size: 18px;
+        }
     }
 }
