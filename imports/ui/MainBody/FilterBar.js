@@ -10,7 +10,7 @@ export default class FilterBar extends Component {
                 <p className="title">Grounds</p>
             </div>
             
-            <div className="col-lg-8">
+            <div className="col-lg-7">
                 <div className="selectOptions">
                     <select name="distance" id="">
                         <option value="Nearest">Nearest</option>
@@ -31,8 +31,8 @@ export default class FilterBar extends Component {
                 </div>
             </div>
 
-            <div className="col-lg-2 justify-content-end">
-                <input type="search" name="" id=""/>
+            <div className="col-lg-3 justify-content-end">
+                <input className="searchBar" type="search" name="" id=""/>
             </div>
         </div>
     );
