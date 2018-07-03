@@ -1,0 +1,26 @@
+.filterContainer{
+    margin-top: 55px;
+    margin-bottom: 35px;
+    align-items: center;
+    .title{
+        margin-bottom: 0;
+        font-size: 40px;
+        color: rgb(43,43,43);
+        font-weight: 300;
+    }
+
+    .selectOptions{
+        background: white;
+        
+        select{
+            margin: auto 15px;
+            background: white;
+            border: none;
+            border-bottom: 1px solid black;
+            padding:5px;
+        }
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+}
