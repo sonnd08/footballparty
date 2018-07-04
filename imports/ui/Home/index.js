@@ -4,7 +4,7 @@ import Item from './Item'
 import FilterBar from './FilterBar'
 import Loading from './Loading';
 
-export default class MainBody extends Component {
+export default class Body extends Component {
   render() {
    
 

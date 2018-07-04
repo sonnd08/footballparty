@@ -1,0 +1,26 @@
+.groundDetail{
+    .titleContainer{
+
+        margin: 60px auto;
+        i{
+            font-size: 30px;
+        }
+
+        .title{
+            display: inline-block;
+            font-size: 30px;
+        }
+    }
+
+    .contentContainer{
+        img.mainPic{
+            width: 100%;
+        }
+
+        .contentDetail{
+            p.address{
+                color: rgb(115,115,115);
+            }
+        }
+    }
+}
