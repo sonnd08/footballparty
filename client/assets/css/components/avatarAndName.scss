@@ -12,13 +12,20 @@
 
     .info{
         display: inline-block;
-
+        .name{
+            font-weight: 400;
+        }
         p{
             margin-bottom: 0px;
         }
 
         .additional{
             color: rgb(115,115,115);
+        }
+
+        .ratingContainer{
+            display: inline-block;
+            margin-left: 10px;
         }
     }
 }

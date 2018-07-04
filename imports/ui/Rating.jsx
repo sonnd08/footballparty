@@ -12,7 +12,12 @@ export default class Rating extends Component {
       content.push("icon-star-full")
     };
     if(halfStar) content.push("icon-star-half")
-    for(let i =0; i< ratingValue - fullStar - halfStar; i++){
+    console.log('ratingValue - fullStar - halfStar');
+    console.log(ratingValue);
+    console.log(fullStar);
+    console.log(halfStar);
+    console.log(ratingValue - fullStar - halfStar);
+    for(let i =0; i< 5 - ratingValue - halfStar; i++){
       content.push("icon-star-empty")
     }
     
