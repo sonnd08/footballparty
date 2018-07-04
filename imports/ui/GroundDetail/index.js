@@ -34,7 +34,7 @@ export default class Body extends Component {
                         </p>
                         <p className="price">$25.00</p>
                         <p className="per">/hr</p>
-
+                        
                         <MultiBtn/>
 
                         <span className="timeLeft">4</span>
@@ -94,6 +94,13 @@ export default class Body extends Component {
                                 numberOfPlayers = "220"
                             />
                             
+                            <HistoryItem
+                                src = "https://dummyimage.com/100x100/000000/ffffff"
+                                name = "Champions league"
+                                date ="05 Oct 2017"
+                                numberOfTeams = "12"
+                                numberOfPlayers = "220"
+                            />
                         </div>
                     </div>
                 </div>

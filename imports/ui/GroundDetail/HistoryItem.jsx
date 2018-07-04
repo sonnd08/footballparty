@@ -4,7 +4,7 @@ export default class HistoryItem extends Component {
     render() {
 
         return (
-            <div className="historyItemContainer">
+            <div className="historyItemContainer mb-4">
                 <img src={this.props.img || "https://dummyimage.com/100x100/000000/ffffff"} alt=""/>
                 <div className="info">
                     <p className="name">{this.props.name}</p>
