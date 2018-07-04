@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchBar from '../SeachBar';
 
 export default class FilterBar extends Component {
   render() {
@@ -32,7 +33,7 @@ export default class FilterBar extends Component {
             </div>
 
             <div className="col-lg-3 justify-content-end">
-                <input className="searchBar" type="search" name="" id=""/>
+                <SearchBar classes="filterBar"/>
             </div>
         </div>
     );
