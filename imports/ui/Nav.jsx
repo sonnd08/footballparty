@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Logo from './Logo'
+import SearchBar from './SeachBar'
 
 export default class Nav extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class Nav extends Component {
             <Logo/>
 
             <div className="centerBlock">
-              <input type="search" name="" className="seachInput" placeholder="Search ground, team or someone..."/>
+              <SearchBar/>
               <ul>
                 <li>find match</li>
                 <li>grounds</li>

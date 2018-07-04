@@ -16,20 +16,7 @@
     .centerBlock{ 
         display: inline-block;
         margin-left: 35px;
-        input.seachInput {
-            font-size: 18px;
-            padding-left: 30px;
-            padding-right: 28px;
-            width: 220px;
-            height: 33px;
-            border-radius: 15px;
-            background-color: #232323;
-            border: none;
-            &::placeholder {
-                color: rgb(115, 115, 115);
-                text-align: center;
-            }
-        }
+        
         ul {
             display: inline-block;
             list-style-type: none;

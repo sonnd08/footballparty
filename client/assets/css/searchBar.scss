@@ -1,0 +1,31 @@
+.searchBarContainer{
+    display: inline-block;
+    position: relative;
+    i{
+        position: absolute;
+        top:6px;
+        left:6px;
+        font-size: 20px;
+        color: wheat;
+    }
+    input.seachInput {
+        font-size: 18px;
+        padding-left: 30px;
+        padding-right: 28px;
+        width: 220px;
+        height: 33px;
+        border-radius: 10px;
+        background-color: #232323;
+        border: none;
+        color:white;
+        
+        &::placeholder {
+            color: rgb(115, 115, 115);
+            text-align: center;
+        }
+        &:focus{
+            outline: none;
+            border: 1px solid wheat;
+        }
+    }
+}
