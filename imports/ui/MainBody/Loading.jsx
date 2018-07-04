@@ -8,6 +8,7 @@ export default class Loading extends Component {
         <div className="loadingContainer">
             <p className="text">
                 <i className="icon-spinner3"></i> 
+                &nbsp;
                 Loading more...
             </p>
         </div>
