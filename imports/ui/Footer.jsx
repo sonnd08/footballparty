@@ -9,12 +9,12 @@ export default class Footer extends Component {
       <div className="container">
         <footer className="footerContainer">
             <hr/>
-            <div className="row footerNavContainer">
-              <div className="col-lg-2">
+            <div className="footerNavContainer justify-conten-start">
+              <div className="">
                 <Logo/>
               </div>
 
-              <div className="col-lg-8">
+              <div className="">
                 <nav className="centerBlock footerNav">
                   <ul>
                     <li>Download App</li>

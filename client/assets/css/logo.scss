@@ -1,8 +1,11 @@
 .logoContainer{    
-    display: inline-block;
+    display: inline-flex;
+    align-content: center;
+    img{
+        margin-right: 10px;
+    }
     .logoName {
-        font-weight: regular;
-        font-size: 25px;
+        font-size: 30px;
         letter-spacing: -2px;
         color: rgb(86, 171, 10);
     }
