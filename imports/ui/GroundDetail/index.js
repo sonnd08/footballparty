@@ -4,10 +4,14 @@ import AvatarAndName from '../AvatarAndName'
 import MultiBtn from '../MultiBtn'
 import Comment from '../Comment'
 import HistoryItem from './HistoryItem'
+import BookingModal from './BookingModal'
+
+
 export default class Body extends Component {
     render() {
         return (
             <div className="groundDetail container">
+                <BookingModal/>
                 <div className="titleContainer">
                     <a href="#">
                         <i className="icon-arrow-left mr-4"></i>
