@@ -11,7 +11,8 @@ export default class AvatarAndName extends Component {
                         alt=""/>
                 </div>
                 <div className="info">
-                    <p className="name">{this.props.name || "User name"}{this.props.ratingObj}</p>
+                    <p className="name">{this.props.name || "User name"}</p>
+                    {this.props.ratingObj}
                     <p className="additional">{this.props.additional || "Additional info"}</p>
                 </div>
             </span>

@@ -3,7 +3,7 @@ import Rating from '../Rating';
 import AvatarAndName from '../AvatarAndName'
 import MultiBtn from '../MultiBtn'
 import Comment from '../Comment'
-
+import HistoryItem from './HistoryItem'
 export default class Body extends Component {
     render() {
         return (
@@ -44,8 +44,8 @@ export default class Body extends Component {
                     </div>
                 </div>
 
-                <div className="row commentsContainer">
-                    <div className="col-lg-8">
+                <div className="row mt-5">
+                    <div className="col-lg-8 commentsContainer">
                         <span className="title">Comments &amp; Reviews &nbsp;</span>
                         <span className="sumOfCmts">(4)</span>
 
@@ -79,6 +79,22 @@ export default class Body extends Component {
                             />
                         </div>
 
+                    </div>
+
+                    <div className="col-lg-4 historiesContainer">
+                        <span className="title">Histories &nbsp;</span>
+                        <span className="sumOfHistories">(2)</span>
+                        
+                        <div className="histories  mt-5">
+                            <HistoryItem
+                                src = "https://dummyimage.com/100x100/000000/ffffff"
+                                name = "Champions league"
+                                date ="05 Oct 2017"
+                                numberOfTeams = "12"
+                                numberOfPlayers = "220"
+                            />
+                            
+                        </div>
                     </div>
                 </div>
             </div>
