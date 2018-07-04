@@ -21,6 +21,27 @@
             p.address{
                 color: rgb(115,115,115);
             }
+
+            .price{
+                display: inline-block;
+                color:#56ab0a;
+                font-size: 40px;
+            }
+            .per{
+                display: inline-block;
+                font-size: 25px;
+            }
+            .timeLeft{
+                color:#56ab0a;
+                font-size: 25px;
+                font-weight: 500;
+            }
+            .timeUnit{
+                color:#56ab0a;
+            }
+            .status{
+                color: rgb(115,115,115);
+            }
         }
     }
 }

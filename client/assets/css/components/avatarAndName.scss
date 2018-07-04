@@ -1,0 +1,24 @@
+.avatarAndNameContainer{
+    display: inline-flex;
+    align-items: center;
+    .avatar{
+        display: inline-block;
+        width: 50px;
+        img{
+            border-radius: 50%;
+            width: 100%
+        }
+    }
+
+    .info{
+        display: inline-block;
+
+        p{
+            margin-bottom: 0px;
+        }
+
+        .additional{
+            color: rgb(115,115,115);
+        }
+    }
+}

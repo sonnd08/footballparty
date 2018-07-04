@@ -16,9 +16,6 @@ export default class Rating extends Component {
       content.push("icon-star-empty")
     }
     
-    console.log(content);
-    console.log(ratingValue);
-    console.log(fullStar);
 		return (
       <div className="ratingContainer">
         {content.map((value, i)=>{
