@@ -1,0 +1,171 @@
+.step1Container {
+	.title {
+		font-size: 25px;
+		font-weight: 500;
+	}
+	.name {
+		display: inline-block;
+		color: rgb(86, 171, 10);
+		margin-right: 20px;
+	}
+	.address {
+		display: inline-block;
+	}
+	.multiBtnContainer {
+		margin-left: auto;
+		.button {
+			font-size: 14px;
+			padding: 10px;
+		}
+	}
+	.flexContainer {
+		align-items: flex-end;
+		p {
+			margin-bottom: 0;
+		}
+	}
+	.datePicker {
+		margin-top: 30px;
+		.button {
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			font-size: 17px;
+			font-weight: 700;
+			width: 6.25%;
+		}
+		.firstBtn, .lastBtn{
+			font-weight: 400;
+			border-bottom: none;
+		}
+		.passedDate {
+			color: rgb(199, 199, 199);
+		}
+		.currDate {
+			color: rgb(86, 171, 10);
+		}
+		.active {
+			background: rgb(86, 171, 10);
+			color: white;
+			position: relative;
+			&::after {
+				position: absolute;
+				content: "";
+				width: 0;
+				height: 0;
+				border-left: 10px solid transparent;
+				border-right: 10px solid transparent;
+				border-top: 10px solid rgb(86, 171, 10);
+				top: 65px;
+				right: 22px;
+			}
+		}
+	}
+	.visualizedScheduleContainer {
+		margin-top: 40px;
+		.visualizedSchedule {
+			background: #e7e7e7;
+			width: 100%;
+			height: 100px;
+			td {
+				padding: 10px;
+				text-align: center;
+				vertical-align: middle;
+				border-right: 0.5px solid #d1d1d1;
+				font-weight: 500;
+			}
+			.active {
+				background: rgb(86, 171, 10);
+				color: white;
+			}
+			.unavailable {
+				background: #a8a8a8;
+			}
+			.openning {
+				background: #00c5a2;
+			}
+		}
+		.visualizedTime {
+			background: none;
+			width: 100%;
+			td {
+				padding-top: 15px;
+				width: 6.25%;
+				position: relative;
+				&::before {
+					position: absolute;
+					content: "";
+					width: 1.5px;
+					height: 8px;
+					background: black;
+					top: 5px;
+				}
+			}
+		}
+	}
+	.footer{
+		background: #fbfbfb;;
+		padding: 20px;
+		padding-top: 70px;
+		padding-bottom: 70px;
+		margin: -30px;
+		margin-top: 30px;
+		.tip{
+			font-style: italic;
+			color: rgb(115,115,115);
+
+		}
+		.timeDetail{
+			.dateContainer{
+				display: inline-block;
+				border-right: 1px solid #d1d1d1;
+				padding-left: 10px;
+				padding-right: 10px;
+				margin-right: 10px;
+				p{
+					margin-bottom: 0;
+				}
+				.day{
+					margin-right: 10px;
+					display: inline-block;
+					font-size: 40px;
+					color:rgb(86, 171, 10);
+					vertical-align: middle;
+				}
+				.date{
+					display: inline-block;
+					vertical-align: middle;
+					// &:first-child{
+					// 	margin-bottom: 5px;
+					// }
+				}
+			}
+			.time{
+				vertical-align: middle;
+				display: inline-block;
+				
+				p{
+					display: inline-block;
+					margin-bottom: 0px;
+				}
+
+				.fromTime{
+					color:rgb(86, 171, 10);
+				}
+				.toTime{
+					color:rgb(86, 171, 10);
+				}
+			}
+		}
+
+		.nextStepBtn{
+			width: 100%;
+			height: 100%;
+			background: rgb(86, 171, 10);
+			color: white;
+		}
+	}
+
+}
