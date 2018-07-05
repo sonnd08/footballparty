@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import TimeDetail from './Components/TimeDetail'
 import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
 import SearchBar from '../../SearchBar'
+import AvatarAndName from '../../AvatarAndName'
 
 export default class Step3 extends Component {
     render() {
@@ -19,6 +20,34 @@ export default class Step3 extends Component {
                 
                 <SearchBar classes="style2"/>
 
+                <div className="suggestedTeamsContainer mt-4">
+                  <p className="title gray">Suggested Teams</p>
+                  <div className="teams">
+                    <div className="row">
+                      <div className="col-md-6 mb-4 ">
+                        <div className="teamContainer p-4  active">
+                          <AvatarAndName/>
+                        </div>
+                      </div>
+                      <div className="col-md-6 mb-4 ">
+                        <div className="teamContainer p-4">
+                          <AvatarAndName/>
+                        </div>
+                      </div>
+                      <div className="col-md-6 mb-4 ">
+                        <div className="teamContainer p-4">
+                          <AvatarAndName/>
+                        </div>
+                      </div>
+                      <div className="col-md-6 mb-4 ">
+                        <div className="teamContainer p-4">
+                          <AvatarAndName/>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
                 <div className="footer">
                     <div className="row">
                         <div className="col-md-9">

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 export default class AvatarAndName extends Component {
     render() {
-
         return (
             <span className="avatarAndNameContainer">
                 <div className="avatar mr-2">

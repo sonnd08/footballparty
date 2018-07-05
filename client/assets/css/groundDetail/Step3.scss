@@ -1,23 +1,57 @@
-.step3Container{
-  .stadiumNameAndAddressContainer{
+.step3Container {
+  .stadiumNameAndAddressContainer {
     display: inline-block;
   }
-  .timeDetail{
+  .timeDetail {
     display: inline-block;
   }
-
-  .searchBarContainer{
+  .searchBarContainer {
     width: 100%;
     margin-top: 30px;
-    i{
-      top:21px;
-      left:28px;
+    i {
+      top: 21px;
+      left: 28px;
       font-size: 29px;
     }
-    input.searchInput{
+    input.searchInput {
       height: 70px;
       padding-left: 90px;
     }
   }
-
+  .suggestedTeamsContainer {
+    .title {
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 15px;
+    }
+    .teams{
+      .teamContainer{
+        border-radius: 10px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+      .avatarAndNameContainer {
+        .avatar {
+          width: 85px;
+        }
+        .info {
+          .name {
+            font-size: 22px;
+          }
+          .additional{
+            font-size: 18px;
+          }
+        }
+      }
+      .active{
+        border: 1px solid rgb(86, 171, 10);
+        .info {
+          .name {
+            color: rgb(86, 171, 10);
+          }
+        }
+      }
+    }
+  }
 }
