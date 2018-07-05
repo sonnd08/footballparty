@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 
 
 import Nav from './Nav';
-import Body from './GroundDetail';
 import Footer from './Footer'
+import GroundDetail from './GroundDetail';
+import Home from './Home';
 
  
 
@@ -15,7 +16,8 @@ export default class App extends Component {
     return (
       <div>
         <Nav/>
-        <Body/>
+        <GroundDetail/>
+        {/* <Home/> */}
         <Footer/>
       </div>
 

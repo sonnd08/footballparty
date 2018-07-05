@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import TimeDetail from './Components/TimeDetail'
+import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
 export default class Step2 extends Component {
     render() {
         return (
@@ -20,8 +21,7 @@ export default class Step2 extends Component {
                         <img className="addressDisplay" src="https://dummyimage.com/300x300/000000/ffffff" alt=""/>
                       </div>
                       <div className="col-10">
-                        <p className="name green mb-1">Old Trafford Stadium</p>
-                        <p className="address gray">Sir Matt Busby Way, Stretford, Manchester M16 0RA, UK</p>
+                        <StadiumNameAndAddress/>
                         <TimeDetail/>
                       </div>
                     </div>
