@@ -106,7 +106,7 @@
 		}
 	}
 	.footer{
-		background: #fbfbfb;;
+		background: #f4f4f4;;
 		padding: 20px;
 		padding-top: 70px;
 		padding-bottom: 70px;
@@ -117,54 +117,17 @@
 			color: rgb(115,115,115);
 
 		}
-		.timeDetail{
-			.dateContainer{
-				display: inline-block;
-				border-right: 1px solid #d1d1d1;
-				padding-left: 10px;
-				padding-right: 10px;
-				margin-right: 10px;
-				p{
-					margin-bottom: 0;
-				}
-				.day{
-					margin-right: 10px;
-					display: inline-block;
-					font-size: 40px;
-					color:rgb(86, 171, 10);
-					vertical-align: middle;
-				}
-				.date{
-					display: inline-block;
-					vertical-align: middle;
-					// &:first-child{
-					// 	margin-bottom: 5px;
-					// }
-				}
-			}
-			.time{
-				vertical-align: middle;
-				display: inline-block;
-				
-				p{
-					display: inline-block;
-					margin-bottom: 0px;
-				}
-
-				.fromTime{
-					color:rgb(86, 171, 10);
-				}
-				.toTime{
-					color:rgb(86, 171, 10);
-				}
-			}
-		}
+		
 
 		.nextStepBtn{
 			width: 100%;
 			height: 100%;
 			background: rgb(86, 171, 10);
 			color: white;
+			min-height: 50px;
+			text-transform: uppercase;
+			font-size: 20px;
+			font-weight: 600;
 		}
 	}
 

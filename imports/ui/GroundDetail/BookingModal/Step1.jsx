@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import TImeDetail from './Components/TimeDetail'
 
 export default class Step1 extends Component {
     render() {
@@ -79,26 +80,7 @@ export default class Step1 extends Component {
                             <div className="col-lg-6 col-sm-12">
 														<div className="row">
 															<div className="col-md-8">
-                                <div className="timeDetail">
-                                    <div className="dateContainer">
-                                        <p className="day">10</p>
-																				<div className="date">
-																					<p className="dayOfWeek">Monday</p>
-																					<p className="monthAndYear">Oct 2017</p>
-																				</div>
-                                    </div>
-                                    {/* {/* <span className="divider">|</span> */}
-                                    <div className="time">
-																			<div className="d-flex justify-content-between">
-                                        <p className="from pr-3">From:</p>
-                                        <p className="fromTime">08:00am</p>
-																			</div>
-																			<div className="d-flex justify-content-between">
-                                        <p className="to pr-3">To:</p>
-                                        <p className="toTime">09:00am</p>
-																			</div>
-                                    </div>
-                                </div>
+                                <TimeDetail/>
 															</div>
 
 															<div className="col-md-4">
