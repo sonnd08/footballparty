@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Logo from './Logo'
-import SearchBar from './SeachBar'
+import SearchBar from './SearchBar'
 
 export default class Nav extends Component {
   render() {

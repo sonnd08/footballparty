@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import TimeDetail from './Components/TimeDetail'
 import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
-import SearchBar from '../../SeachBar'
+import SearchBar from '../../SearchBar'
 
 export default class Step3 extends Component {
     render() {
