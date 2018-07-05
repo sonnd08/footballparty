@@ -7,8 +7,10 @@ export default class Step1 extends Component {
             <div className="step1Container">
                 <h1 className="title">Book your Match</h1>
                 <div className="flexContainer d-flex justify-content-between">
-                    <p className="name">Old Trafford Stadium</p>
-                    <p className="address">Sir Matt Busby Way, Stretford, Manchester M16 0RA, UK</p>
+                    <div className="stadiumInfo">
+                      <p className="name">Old Trafford Stadium</p>
+                      <p className="address">Sir Matt Busby Way, Stretford, Manchester M16 0RA, UK</p>
+                    </div>
 
                     <div className="multiBtnContainer d-flex justify-content-center">
                         <button className="button firstBtn">&lt;</button>
