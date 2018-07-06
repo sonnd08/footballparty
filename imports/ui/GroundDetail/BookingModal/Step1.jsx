@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import TImeDetail from './Components/TimeDetail'
+import DatePicker from '../../_Components/DatePicker'
+import TimeDetail from './Components/TimeDetail'
 
 export default class Step1 extends Component {
     render() {
@@ -20,26 +21,7 @@ export default class Step1 extends Component {
                     </div>
                 </div>
 
-                <div className="datePicker">
-                    <div className="multiBtnContainer d-flex justify-content-center">
-                        <button className="button firstBtn">&lt;</button>
-                        <button className="button passedDate">06</button>
-                        <button className="button passedDate">07</button>
-                        <button className="button passedDate">08</button>
-                        <button className="button currDate">09</button>
-                        <button className="button commingDate active">10</button>
-                        <button className="button commingDate">11</button>
-                        <button className="button commingDate">12</button>
-                        <button className="button commingDate">13</button>
-                        <button className="button commingDate">14</button>
-                        <button className="button commingDate">15</button>
-                        <button className="button commingDate">16</button>
-                        <button className="button commingDate">17</button>
-                        <button className="button commingDate">18</button>
-                        <button className="button commingDate">19</button>
-                        <button className="button lastBtn">&gt;</button>
-                    </div>
-                </div>
+                <DatePicker/>
 
                 <div className="visualizedScheduleContainer">
                     <table>

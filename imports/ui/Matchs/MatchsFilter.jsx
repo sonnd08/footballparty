@@ -7,7 +7,7 @@ export default class MatchsFilter extends Component {
         return (
             <div className="row matchsFilterContainer filterContainer">
                 <div className="col-lg-2">
-                    <p className="title">Grounds</p>
+                    <p className="title">Matchs</p>
                 </div>
 
                 <div className="col-lg-4">

@@ -26,45 +26,7 @@
 			margin-bottom: 0;
 		}
 	}
-	.datePicker {
-		margin-top: 30px;
-		.button {
-			border-top: none;
-			border-left: none;
-			border-right: none;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			font-size: 17px;
-			font-weight: 700;
-			width: 6.25%;
-		}
-		.firstBtn, .lastBtn{
-			font-weight: 400;
-			border-bottom: none;
-		}
-		.passedDate {
-			color: rgb(199, 199, 199);
-		}
-		.currDate {
-			color: rgb(86, 171, 10);
-		}
-		.active {
-			background: rgb(86, 171, 10);
-			color: white;
-			position: relative;
-			&::after {
-				position: absolute;
-				content: "";
-				width: 0;
-				height: 0;
-				border-left: 10px solid transparent;
-				border-right: 10px solid transparent;
-				border-top: 10px solid rgb(86, 171, 10);
-				top: 65px;
-				right: 22px;
-			}
-		}
-	}
+	
 	.visualizedScheduleContainer {
 		margin-top: 40px;
 		.visualizedSchedule {

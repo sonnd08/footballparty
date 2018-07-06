@@ -11,7 +11,7 @@ export default class BookingModal extends Component {
                 <div className="row justify-content-center">
                     <div className="col-lg-10 mt-l-5">
                         <div className="modal-content">
-                            <Step3/>
+                            <Step1/>
                         </div>
                     </div>
                 </div>
