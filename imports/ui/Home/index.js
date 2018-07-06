@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Item from './Item'
 import FilterBar from './FilterBar'
-import Loading from './Loading';
+import Loading from '../_Components/Loading';
 
 export default class Body extends Component {
   render() {

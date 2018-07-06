@@ -29,4 +29,12 @@
             margin-left: 10px;
         }
     }
+
+    &.avatarSquare{
+      .avatar{
+        img{
+            border-radius: 0%;
+        }
+      }
+    }
 }
