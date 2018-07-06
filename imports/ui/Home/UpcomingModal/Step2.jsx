@@ -17,10 +17,10 @@ export default class Step2 extends Component {
                 <div className="bookingInfoContainer">
                   <div className="p-4 grayBg">
                     <div className="row">
-                      <div className="col-2">
+                      <div className="col-3">
                         <img className="addressDisplay" src="https://dummyimage.com/300x300/000000/ffffff" alt=""/>
                       </div>
-                      <div className="col-10">
+                      <div className="col-9">
                         <StadiumNameAndAddress/>
                         <TimeDetail/>
                       </div>

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TimeDetail from '../../_Components/TimeDetail'
-import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
+import StadiumNameAndAddress from '../../_Components/StadiumNameAndAddress'
 import SearchBar from '../../_Components/SearchBar'
 import AvatarAndName from '../../_Components/AvatarAndName'
 
