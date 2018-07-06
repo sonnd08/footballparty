@@ -3,9 +3,11 @@ import Logo from './Logo'
 import SearchBar from './SearchBar'
 
 export default class Nav extends Component {
+  showUpcomingModal = ()=>{
+    
+  }
   render() {
-   
-
+    
     return (
       <nav className="navBar">
         <div className="container">
@@ -19,7 +21,7 @@ export default class Nav extends Component {
                 <li>find match</li>
                 <li>grounds</li>
                 <li>messages</li>
-                <li className="active">upcoming</li>
+                <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
               </ul>
             </div>
 
