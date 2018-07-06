@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TimeDetail from './Components/TimeDetail'
+import TimeDetail from '../../_Components/TimeDetail'
 import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
 import SearchBar from '../../_Components/SearchBar'
 import AvatarAndName from '../../_Components/AvatarAndName'

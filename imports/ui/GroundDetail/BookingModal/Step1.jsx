@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import DatePicker from '../../_Components/DatePicker'
-import TimeDetail from './Components/TimeDetail'
+import TimeDetail from '../../_Components/TimeDetail'
 
 export default class Step1 extends Component {
     render() {

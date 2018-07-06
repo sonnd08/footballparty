@@ -1,0 +1,84 @@
+.matchsContainer {
+  .matchContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    .topContainer {
+      padding: 2em;
+      background: #fbfbfb;
+      border: 1px solid #dcdcdc;
+      .avatarAndNameContainer {
+        .avatar {
+          width: 100px;
+          img {
+            margin-bottom: 10px;
+          }
+          .ratingContainer {
+            text-align: center;
+          }
+        }
+        .info {
+          margin-left: 10px;
+          .name {
+            font-weight: 500;
+            font-size: 22px;
+          }
+        }
+      }
+    }
+    .matchFooter {
+      border: 1px solid #dcdcdc;
+      border-top: none;
+      .author {
+        padding: 1em;
+        display: inline-flex;
+        align-items: center;
+        border-right: 1px solid #dcdcdc;
+        .avatar {
+          display: inline-block;
+          width: 30px;
+          margin-right: 10px;
+          img {
+            width: 100%;
+            border-radius: 50%;
+          }
+        }
+        .authorName {
+          display: inline-block;
+          margin-bottom: 0px;
+        }
+      }
+
+      .numOfPlayersContainer{
+        display: inline-block;
+        padding: 1em;
+        border-right: 1px solid #dcdcdc;
+        .numOfPlayers{
+          color: #56ab0a;
+          margin-bottom: 0;
+          line-height: 30px;
+        }
+      }
+      
+      .jointBtn{
+        visibility: hidden;
+        background: #56ab0a;
+        color: white;
+        font-size: 18px;
+        border: none;
+        height: 100%;
+        width: 120px;
+        &:hover{
+          cursor: pointer;
+        }
+      }
+    }
+
+    &:hover{
+      .matchFooter{
+        .jointBtn{
+          visibility: visible;
+        }
+      }
+    }
+  }
+}

@@ -11,7 +11,7 @@ export default class AvatarAndName extends Component {
                         src={this.props.img || "https://dummyimage.com/100x100/000000/ffffff"}
                         alt=""/>
 
-                    {this.props.rating}
+                    {this.props.rating?this.props.rating:''}
                 </div>
                 <div className="info">
                     <p className="name">{this.props.name || "User name"}</p>

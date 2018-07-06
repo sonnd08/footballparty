@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TimeDetail from './Components/TimeDetail'
+import TimeDetail from '../../_Components/TimeDetail'
 import StadiumNameAndAddress from './Components/StadiumNameAndAddress'
 export default class Step2 extends Component {
     render() {
