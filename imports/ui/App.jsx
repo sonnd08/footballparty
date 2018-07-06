@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
 
-import Nav from './Nav';
-import Footer from './Footer'
+import Nav from './_Components/Nav';
+import Footer from './_Components/Footer'
 import GroundDetail from './GroundDetail';
 import Home from './Home';
+import Matchs from './Matchs';
 
  
 
@@ -16,7 +17,8 @@ export default class App extends Component {
     return (
       <div>
         <Nav/>
-        <GroundDetail/>
+        <Matchs/>
+        {/* <GroundDetail/> */}
         {/* <Home/> */}
         <Footer/>
       </div>

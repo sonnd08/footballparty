@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import Rating from '../Rating';
-import AvatarAndName from '../AvatarAndName'
-import MultiBtn from '../MultiBtn'
-import Comment from '../Comment'
+import Rating from '../_Components/Rating';
+import AvatarAndName from '../_Components/AvatarAndName'
+import MultiBtn from '../_Components/MultiBtn'
+import Comment from '../_Components/Comment'
 import HistoryItem from './HistoryItem'
 import BookingModal from './BookingModal'
 

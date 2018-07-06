@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SearchBar from '../SearchBar';
+import SearchBar from '../_Components/SearchBar';
 
 export default class FilterBar extends Component {
   render() {
