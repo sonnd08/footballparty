@@ -17,9 +17,9 @@ export default class App extends Component {
     return (
       <div>
         <Nav/>
-        {/* <Matchs/> */}
+        <Matchs/>
         {/* <GroundDetail/> */}
-        <Home/>
+        {/* <Home/> */}
         <Footer/>
       </div>
 

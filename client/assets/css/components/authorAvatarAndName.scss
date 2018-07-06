@@ -1,0 +1,20 @@
+.authorAvatarAndNameContainer{
+  .author {
+    padding: 1em;
+    display: inline-flex;
+    align-items: center;
+    .avatar {
+      display: inline-block;
+      width: 30px;
+      margin-right: 10px;
+      img {
+        width: 100%;
+        border-radius: 50%;
+      }
+    }
+    .authorName {
+      display: inline-block;
+      margin-bottom: 0px;
+    }
+  }
+}
