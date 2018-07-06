@@ -12,7 +12,7 @@ export default class Body extends Component {
 
     return (
         <div className="MainBody container">
-            <UpcomingModal/>
+            {/* <UpcomingModal/> */}
             <FilterBar/>
             <div className="row content">
                 <Item/>
