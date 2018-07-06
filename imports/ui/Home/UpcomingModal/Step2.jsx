@@ -2,11 +2,13 @@ import React, {Component} from 'react';
 import TimeDetail from '../../_Components/TimeDetail'
 import StadiumNameAndAddress from '../../_Components/StadiumNameAndAddress'
 import Rating from '../../_Components/Rating'
+import AuthorAvatarAndName from '../../_Components/AuthorAvatarAndName'
+import NumOfPlayers from '../../_Components/NumOfPlayers'
 
 export default class Step2 extends Component {
     render() {
         return (
-            <div className="step1Container step2Container">
+            <div className="step1Container step2Container upcomingMoldalStep2">
                 <div className="row ">
                     <div className="col-md-8">
                         <h1 className="title">Upcoming Match</h1>
@@ -19,9 +21,45 @@ export default class Step2 extends Component {
                     </div>
                 </div>
                 
-                <p className="bookedNotification">Your Booking has been Issued!</p>
+                
+                <div className="vsContainer mt-5">
+                  <div className="row">
+                    <div className="col-md-5 col-sm-12">
+                      <div className="teamContainer p-4">
+                        <div className="teamAvatar">
+                          <img src="https://dummyimage.com/500x500/000000/ffffff" alt=""/>
+                        </div>
+                        <p className="teamName">Bayern Muchen</p>
+                        <Rating value="3.5"/>
+                        <div className="teamFooter">
+                          <AuthorAvatarAndName/>
+                          <NumOfPlayers/>
+                        </div>
 
-                <div className="bookingInfoContainer">
+                      </div>
+                    </div>
+                    <div className="vsContainer col-sm-12 col-md-2">
+                      <p className="vs">VS</p>
+                    </div>
+                    <div className="col-md-5 col-sm-12">
+                      <div className="teamContainer p-4">
+                        <div className="teamAvatar">
+                          <img src="https://dummyimage.com/500x500/000000/ffffff" alt=""/>
+                        </div>
+                        <p className="teamName">Bayern Muchen</p>
+                        <Rating value="3.5"/>
+                        <div className="teamFooter">
+                          <AuthorAvatarAndName/>
+                          <NumOfPlayers/>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div className="bookingInfoContainer upcomingFooter">
                     <div className="p-4 grayBg">
                         <div className="row">
                             <div className="col-3">
@@ -39,30 +77,19 @@ export default class Step2 extends Component {
                     </div>
                 </div>
 
-                <div className="vsContainer">
-                  <div className="row">
-                    <div className="col-md-5">
-                      <div className="teamContainer">
-                        <img src="https://dummyimage.com/500x500/000000/ffffff" alt="" className="avatar"/>
-                        <p className="teamName">Bayern Muchen</p>
 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="footer">
+                <div className="footer upcomingMoldal">
                     <div className="row">
-                        <div className="col-md-9">
+                        <div className="col-md-8">
                             <div className="inviteATeam">
                                 <i className="iconPlus icon-plus2"></i>
-                                <p >Invite a Team</p>
+                                <p >Message Bayern Muchen</p>
                             </div>
-                            <p className="tip">( You can do it later in your match management page )</p>
+                            <p className="tip">0 Unread</p>
                         </div>
 
-                        <div className="col-md-3">
-                            <button className="nextStepBtn">Next</button>
+                        <div className="col-md-4 sendRequestBtnContainer">
+                            <button className="nextStepBtn sendRequestBtn">SEND REQUEST</button>
                         </div>
                     </div>
                 </div>

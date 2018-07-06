@@ -1,63 +1,62 @@
 .matchsContainer {
-    .matchContainer {
-        margin-top: 15px;
-        margin-bottom: 15px;
-        .topContainer {
-            padding: 2em;
-            background: #fbfbfb;
-            border: 1px solid #dcdcdc;
-            .avatarAndNameContainer {
-                .avatar {
-                    width: 100px;
-                    img {
-                        margin-bottom: 10px;
-                    }
-                    .ratingContainer {
-                        text-align: center;
-                    }
-                }
-                .info {
-                    margin-left: 10px;
-                    .name {
-                        font-weight: 500;
-                        font-size: 22px;
-                    }
-                }
-            }
+  .matchContainer {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    .topContainer {
+      padding: 2em;
+      background: #fbfbfb;
+      border: 1px solid #dcdcdc;
+      .avatarAndNameContainer {
+        .avatar {
+          width: 100px;
+          img {
+            margin-bottom: 10px;
+          }
+          .ratingContainer {
+            text-align: center;
+          }
         }
-        .matchFooter {
-            border: 1px solid #dcdcdc;
-            border-top: none;
-
-            .authorAvatarAndNameContainer {
-                .author {
-                    border-right: 1px solid #dcdcdc;
-                }
-            }
-
-            .numOfPlayersContainer {
-                border-right: 1px solid #dcdcdc;
-            }
-
-            .jointBtn {
-                visibility: hidden;
-                background: #56ab0a;
-                color: white;
-                font-size: 18px;
-                border: none;
-                height: 100%;
-                width: 120px;
-                &:hover {
-                    cursor: pointer;
-                }
-            }
+        .info {
+          margin-left: 10px;
+          .name {
+            font-weight: 500;
+            font-size: 22px;
+          }
         }
-        &:hover {
-            .matchFooter {
-                .jointBtn {
-                    visibility: visible;
-                }
-            }
-        }
+      }
     }
+    .matchFooter {
+      border: 1px solid #dcdcdc;
+      border-top: none;
+      .authorAvatarAndNameContainer {
+        .author {
+          padding: 1em;
+          border-right: 1px solid #dcdcdc;
+        }
+      }
+      .numOfPlayersContainer {
+        padding: 1em;
+        border-right: 1px solid #dcdcdc;
+      }
+      .jointBtn {
+        visibility: hidden;
+        background: #56ab0a;
+        color: white;
+        font-size: 18px;
+        border: none;
+        height: 100%;
+        width: 120px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    &:hover {
+      .matchFooter {
+        .jointBtn {
+          visibility: visible;
+        }
+      }
+    }
+  }
 }

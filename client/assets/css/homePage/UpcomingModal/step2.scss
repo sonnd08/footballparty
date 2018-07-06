@@ -1,0 +1,44 @@
+.upcomingMoldalStep2{
+  .vsContainer{
+    .teamContainer{
+      text-align: center;
+      .teamAvatar{
+        padding: 2em;
+        padding-bottom: 1em;
+        img{
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .teamName{
+        font-weight: 500;
+        font-size: 22px;
+        margin-bottom: 0;
+      }
+      .teamFooter{
+        margin-top: 20px;
+      }
+    }
+    .vsContainer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .vs{
+        font-size: 30px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .footer{
+    &.upcomingMoldal{
+      padding-top: 2em;
+      padding-bottom: 2em;
+      .sendRequestBtn{
+        border: none;
+        font-size: 15px;
+      }
+    }
+  }
+  
+}
