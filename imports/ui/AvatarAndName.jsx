@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 
 export default class AvatarAndName extends Component {
+  
     render() {
+        let classes = `${this.props.classes || ''}`
         return (
-            <span className="avatarAndNameContainer">
+            <span className={`avatarAndNameContainer ${classes}`}>
                 <div className="avatar mr-2">
                     <img
                         src={this.props.img || "https://dummyimage.com/100x100/000000/ffffff"}
