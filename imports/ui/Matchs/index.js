@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import FilterBar from '../Home/FilterBar'
+import MatchsFilter from './MatchsFilter'
 import Loading from '../_Components/Loading';
 
 export default class Matchs extends Component {
@@ -10,7 +10,7 @@ export default class Matchs extends Component {
     return (
         <div className="matchsContainer container">
 
-            <FilterBar/>
+            <MatchsFilter/>
             <div className="row content">
             </div>
 
