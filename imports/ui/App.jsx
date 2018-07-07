@@ -17,9 +17,7 @@ export default class App extends Component {
     return (
       <div>
         <Nav/>
-        {/* <Matchs/> */}
-        {/* <GroundDetail/> */}
-        <Home/>
+        {this.props.body}
         <Footer/>
       </div>
 

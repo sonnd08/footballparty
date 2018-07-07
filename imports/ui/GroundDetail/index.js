@@ -11,7 +11,7 @@ export default class Body extends Component {
     render() {
         return (
             <div className="groundDetail container">
-                <BookingModal/>
+                {/* <BookingModal/> */}
                 <div className="titleContainer">
                     <a href="#">
                         <i className="icon-arrow-left mr-4"></i>
