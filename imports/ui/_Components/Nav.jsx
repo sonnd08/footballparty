@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Logo from './Logo'
 import SearchBar from './SearchBar'
+import {
+  Link,
+  withRouter
+} from 'react-router-dom'
+
 
 export default class Nav extends Component {
   showUpcomingModal = ()=>{
@@ -13,13 +18,18 @@ export default class Nav extends Component {
         <div className="container">
           <div className="content">
 
-            <Logo/>
-
+            <Link to="/">
+              <Logo/>
+            </Link>
             <div className="centerBlock">
               <SearchBar/>
               <ul>
-                <li>find match</li>
-                <li>grounds</li>
+                <li>
+                  <Link to="/Matchs">find match</Link>
+                </li>
+                <li>
+                  <Link to="/">grounds</Link>
+                </li>
                 <li>messages</li>
                 <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
               </ul>

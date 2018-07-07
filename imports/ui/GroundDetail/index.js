@@ -7,13 +7,16 @@ import HistoryItem from './HistoryItem'
 import BookingModal from './BookingModal'
 
 
-export default class Body extends Component {
+import { Link, withRouter} from 'react-router-dom'
+
+class Body extends Component {
     render() {
+      // console.log(this.props);
         return (
             <div className="groundDetail container">
                 {/* <BookingModal/> */}
                 <div className="titleContainer">
-                    <a href="#">
+                    <a onClick={() => this.props.history.goBack()}>
                         <i className="icon-arrow-left mr-4"></i>
                     </a>
                     <h1 className="title">Ground Info</h1>
@@ -112,3 +115,5 @@ export default class Body extends Component {
         );
     }
 }
+
+export default withRouter(Body);
