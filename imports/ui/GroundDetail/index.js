@@ -5,16 +5,19 @@ import MultiBtn from '../_Components/MultiBtn'
 import Comment from '../_Components/Comment'
 import HistoryItem from './HistoryItem'
 import BookingModal from './BookingModal'
-
+import {toggleBookingModal} from '../_Redux/Actions/toggleModal'
 
 import { Link, withRouter} from 'react-router-dom'
-
+import {connect} from 'react-redux'
 class Body extends Component {
+  toggleBookingModal = ()=>{
+    this.props.dispatch(toggleBookingModal());
+  }
     render() {
       // console.log(this.props);
         return (
             <div className="groundDetail container">
-                {/* <BookingModal/> */}
+                <BookingModal/>
                 <div className="titleContainer">
                     <a onClick={() => this.props.history.goBack()}>
                         <i className="icon-arrow-left mr-4"></i>
@@ -42,7 +45,11 @@ class Body extends Component {
                         <p className="price">$25.00</p>
                         <p className="per">/hr</p>
                         
-                        <MultiBtn/>
+                        <div className="multiBtnContainer d-flex justify-conten-center">
+                          <button className="button firstBtn activeBtn" onClick={this.toggleBookingModal}>BOOK NOW</button>
+                          <button className="button">Favorite</button>
+                          <button className="button">Share</button>
+                        </div>
 
                         <span className="timeLeft">4</span>
                         <span className="timeUnit">&nbsp;hour</span>
@@ -116,4 +123,4 @@ class Body extends Component {
     }
 }
 
-export default withRouter(Body);
+export default withRouter(connect(store=>{return {}})(Body));

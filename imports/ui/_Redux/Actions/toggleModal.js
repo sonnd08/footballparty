@@ -4,3 +4,10 @@ export function toggleUpcomingModal(){
     payload:{}
   }
 }
+
+export function toggleBookingModal(){
+  return{
+    type:"toggleBookingModal",
+    payload:{}
+  }
+}
