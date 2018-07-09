@@ -4,15 +4,17 @@ import Item from './Item'
 import FilterBar from './FilterBar'
 import Loading from '../_Components/Loading';
 import UpcomingModal from './UpcomingModal'
+import {connect} from 'react-redux'
 
 
-export default class Body extends Component {
+class Body extends Component {
   render() {
-   
-
+    console.log('this.props');
+    console.log(this.props);
+    let {upcomingModalDisplay} = this.props;
     return (
         <div className="MainBody container">
-            {/* <UpcomingModal/> */}
+            <UpcomingModal display={upcomingModalDisplay}/>
             <FilterBar/>
             <div className="row content">
                 <Item/>
@@ -28,3 +30,10 @@ export default class Body extends Component {
     );
   }
 }
+
+function mapStatetoProps(store){
+  return {
+    upcomingModalDisplay: store.upcomingModalDisplay
+  }
+};
+export default connect(mapStatetoProps)(Body);

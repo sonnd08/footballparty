@@ -5,11 +5,12 @@ import {
   Link,
   withRouter
 } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {toggleUpcomingModal} from '../_Redux/Actions/toggleModal'
+class Nav extends Component {
 
-
-export default class Nav extends Component {
   showUpcomingModal = ()=>{
-    
+    this.props.dispatch(toggleUpcomingModal())
   }
   render() {
     
@@ -45,3 +46,10 @@ export default class Nav extends Component {
     );
   }
 }
+
+function mapStatetoProps(store){
+  return {
+    // upcomingModalDisplay: store.upcomingModalDisplay
+  }
+};
+export default connect(mapStatetoProps)(Nav)

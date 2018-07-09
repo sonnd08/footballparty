@@ -33,7 +33,11 @@
                 &.active {
                     color: white;
                 }
+                &:active{
+                  color: rgb(247, 234, 210);
+                }
                 &:hover {
+                    color: rgb(238, 238, 238);
                     cursor: pointer;
                 }
             }

@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 
 import Nav from './_Components/Nav';
 import Footer from './_Components/Footer'
-import GroundDetail from './GroundDetail';
-import Home from './Home';
-import Matchs from './Matchs';
 
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+import store from './_Redux/Store'
  
 
 // App component - represents the whole app
@@ -15,11 +15,13 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <Nav/>
-        {this.props.body}
-        <Footer/>
-      </div>
+      <Provider store={store}>
+        <div>
+          <Nav/>
+          {this.props.body}
+          <Footer/>
+        </div>
+      </Provider>
 
     );
 
