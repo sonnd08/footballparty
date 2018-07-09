@@ -6,7 +6,7 @@
         top:6px;
         left:6px;
         font-size: 20px;
-        color: wheat;
+        color: rgb(115, 115, 115);
     }
     input.searchInput {
         font-size: 18px;
@@ -32,13 +32,14 @@
     &.style2{
         i{
             font-size: 20px;
-            color: black;
+            color: rgb(115,115,115);
         }
         input.searchInput{
           width: 100%;
-          color: black;
-          background: none;
-          border: 1px solid gray;
+          color: rgb(115,115,115);
+          background-color: #ebebeb;
+          border: none;
+
         }
     }
 }

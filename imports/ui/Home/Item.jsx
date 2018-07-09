@@ -10,7 +10,7 @@ export default class Item extends Component {
         <div className="itemContainer col-lg-4">
             <Link to="GroundDetail">
               <div className="item">
-                  <img src="https://dummyimage.com/500x300/000000/ffffff" alt=""/>
+                  <img src="/assets/imgs/ground.png" alt=""/>
 
                   <div className="info">
                       <p className="name">Old Trafford Stadium</p>

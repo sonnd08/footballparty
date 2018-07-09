@@ -37,8 +37,8 @@ export default class Matchs extends Component {
 
                           <NumOfPlayers/>
 
-                          <div className="jointBtnContainer ml-auto">
-                            <button className="jointBtn">JOIN</button>
+                          <div className="joinBtnContainer ml-auto">
+                            <button className="joinBtn">JOIN</button>
                           </div>
                       </div>
                     </div>
@@ -57,8 +57,8 @@ export default class Matchs extends Component {
 
                           <NumOfPlayers/>
 
-                          <div className="jointBtnContainer ml-auto">
-                            <button className="jointBtn">JOIN</button>
+                          <div className="joinBtnContainer ml-auto">
+                            <button className="joinBtn">JOIN</button>
                           </div>
                       </div>
                     </div>
@@ -76,8 +76,8 @@ export default class Matchs extends Component {
 
                           <NumOfPlayers/>
 
-                          <div className="jointBtnContainer ml-auto">
-                            <button className="jointBtn">JOIN</button>
+                          <div className="joinBtnContainer ml-auto">
+                            <button className="joinBtn">JOIN</button>
                           </div>
                       </div>
                     </div>
@@ -95,8 +95,8 @@ export default class Matchs extends Component {
 
                           <NumOfPlayers/>
 
-                          <div className="jointBtnContainer ml-auto">
-                            <button className="jointBtn">JOIN</button>
+                          <div className="joinBtnContainer ml-auto">
+                            <button className="joinBtn">JOIN</button>
                           </div>
                       </div>
                     </div>

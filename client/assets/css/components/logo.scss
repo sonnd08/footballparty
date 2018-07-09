@@ -1,6 +1,7 @@
 .logoContainer{    
     display: inline-flex;
     align-content: center;
+    line-height: 1;
     img{
         margin-right: 10px;
     }
@@ -8,5 +9,6 @@
         font-size: 30px;
         letter-spacing: -2px;
         color: rgb(86, 171, 10);
+        transform: translateY(2px);
     }
 }

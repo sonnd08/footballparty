@@ -38,10 +38,9 @@
         padding: 1em;
         border-right: 1px solid #dcdcdc;
       }
-      .jointBtn {
-        visibility: hidden;
-        background: #56ab0a;
-        color: white;
+      .joinBtn {
+        background: none;
+        color: black;
         font-size: 18px;
         border: none;
         height: 100%;
@@ -53,8 +52,10 @@
     }
     &:hover {
       .matchFooter {
-        .jointBtn {
-          visibility: visible;
+        .joinBtn {
+          background: #56ab0a;
+          color: white;
+          font-size: 18px;
         }
       }
     }
