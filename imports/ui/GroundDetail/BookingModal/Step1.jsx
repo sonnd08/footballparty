@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import DatePicker from '../../_Components/DatePicker'
 import TimeDetail from '../../_Components/TimeDetail'
-
+import NextStepBtn from './Components/nextStepBtn'
 export default class Step1 extends Component {
     render() {
         return (
@@ -68,7 +68,7 @@ export default class Step1 extends Component {
 															</div>
 
 															<div className="col-md-4">
-																<button className="nextStepBtn">Next</button>
+																<NextStepBtn/>
 															</div>
 														</div>
                             </div>

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TimeDetail from '../../_Components/TimeDetail'
 import StadiumNameAndAddress from '../../_Components/StadiumNameAndAddress'
+import NextStepBtn from './Components/nextStepBtn'
 export default class Step2 extends Component {
     render() {
         return (
@@ -43,7 +44,7 @@ export default class Step2 extends Component {
                         </div>
 
                         <div className="col-md-3">
-                            <button className="nextStepBtn">Next</button>
+                          <NextStepBtn/>
                         </div>
                     </div>
                 </div>

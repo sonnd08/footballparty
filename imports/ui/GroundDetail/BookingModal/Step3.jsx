@@ -3,6 +3,7 @@ import TimeDetail from '../../_Components/TimeDetail'
 import StadiumNameAndAddress from '../../_Components/StadiumNameAndAddress'
 import SearchBar from '../../_Components/SearchBar'
 import AvatarAndName from '../../_Components/AvatarAndName'
+import NextStepBtn from './Components/nextStepBtn'
 
 export default class Step3 extends Component {
     render() {
@@ -50,16 +51,16 @@ export default class Step3 extends Component {
                   </div>
                 </div>
                 <div className="footer">
-                    <div className="row">
+                    <div className="row d-flex align-items-center">
                         <div className="col-md-9">
-                            <div className="inviteATeam cancelBtn">
+                            <div className="inviteATeam cancelBtn d-flex align-items-center">
                                 <i className="iconCross mr-3">x</i>
-                                <p >Cancel</p>
+                                <p className="mb-0">Cancel</p>
                             </div>
                         </div>
 
                         <div className="col-md-3">
-                            <button className="nextStepBtn">Send Invite</button>
+                            <button className="nextStepBtn sendInviteBtn">Send Invite</button>
                         </div>
                     </div>
                 </div>

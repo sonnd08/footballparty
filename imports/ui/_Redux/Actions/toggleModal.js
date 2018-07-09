@@ -11,3 +11,15 @@ export function toggleBookingModal(){
     payload:{}
   }
 }
+export function hideBookingModal(){
+  return{
+    type:"hideBookingModal",
+    payload:{}
+  }
+}
+export function toggleNextBookingStep(){
+  return{
+    type:"toggleNextBookingStep",
+    payload:{}
+  }
+}
