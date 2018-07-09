@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import TimeDetail from '../../_Components/TimeDetail'
-import StadiumNameAndAddress from '../../_Components/StadiumNameAndAddress'
-import Rating from '../../_Components/Rating'
-import AuthorAvatarAndName from '../../_Components/AuthorAvatarAndName'
-import NumOfPlayers from '../../_Components/NumOfPlayers'
+import TimeDetail from '../../TimeDetail'
+import StadiumNameAndAddress from '../../StadiumNameAndAddress'
+import Rating from '../../Rating'
+import AuthorAvatarAndName from '../../AuthorAvatarAndName'
+import NumOfPlayers from '../../NumOfPlayers'
 
 export default class Step2 extends Component {
     render() {

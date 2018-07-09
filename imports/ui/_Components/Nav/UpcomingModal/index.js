@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Step2 from './Step2'
 
 import {connect} from 'react-redux'
-import {toggleUpcomingModal} from '../../_Redux/Actions/toggleModal'
+import {toggleUpcomingModal} from '../../../_Redux/Actions/toggleModal'
 
 class UpcomingModal extends Component {
   
@@ -28,4 +28,6 @@ class UpcomingModal extends Component {
         );
   }
 }
-export default connect((state)=>{})(UpcomingModal)
+export default connect(store=>{
+  return {}
+})(UpcomingModal)
