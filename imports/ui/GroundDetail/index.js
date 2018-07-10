@@ -45,10 +45,10 @@ class Body extends Component {
                         <p className="price">$25.00</p>
                         <p className="per">/hr</p>
                         
-                        <div className="multiBtnContainer d-flex justify-conten-center">
-                          <button className="button firstBtn activeBtn" onClick={this.toggleBookingModal}>BOOK NOW</button>
-                          <button className="button">Favorite</button>
-                          <button className="button">Share</button>
+                        <div className="multiBtnContainer d-flex justify-conten-center row">
+                          <button className="button firstBtn activeBtn col-5" onClick={this.toggleBookingModal}>BOOK NOW</button>
+                          <button className="button col-4">Favorite</button>
+                          <button className="button col-3">Share</button>
                         </div>
 
                         <span className="timeLeft">4</span>

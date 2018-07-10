@@ -1,6 +1,5 @@
 {
-  "done": [],
-  "in-progress": [
+  "done": [
     {
       "assignedTo": {
         "name": "Son Nguyen Dinh"
@@ -9,27 +8,6 @@
       "id": "20180709104949_483998236_51c2697d18efb36b4823e47611c28676",
       "references": [],
       "title": "Replace image"
-    }
-  ],
-  "testing": [],
-  "todo": [
-    {
-      "assignedTo": {
-        "name": "Son Nguyen Dinh"
-      },
-      "creation_time": "2018-07-09T03:30:29.620Z",
-      "id": "20180709033029_157029927_d82ff57e539164c6e03efea06f654f01",
-      "references": [],
-      "title": "@decorator in es5"
-    },
-    {
-      "assignedTo": {
-        "name": "Son Nguyen Dinh"
-      },
-      "creation_time": "2018-07-09T10:50:04.354Z",
-      "id": "20180709105004_14647823_0d3e6521406b126a0d412efc5e773de0",
-      "references": [],
-      "title": "avatar popup"
     },
     {
       "assignedTo": {
@@ -39,6 +17,29 @@
       "id": "20180709104933_552222073_2a0732ea55274e202a574e552511a31b",
       "references": [],
       "title": "Slider for datepicker"
+    }
+  ],
+  "in-progress": [],
+  "testing": [
+    {
+      "assignedTo": {
+        "name": "Son Nguyen Dinh"
+      },
+      "creation_time": "2018-07-09T10:50:04.354Z",
+      "id": "20180709105004_14647823_0d3e6521406b126a0d412efc5e773de0",
+      "references": [],
+      "title": "avatar popup"
+    }
+  ],
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "Son Nguyen Dinh"
+      },
+      "creation_time": "2018-07-09T03:30:29.620Z",
+      "id": "20180709033029_157029927_d82ff57e539164c6e03efea06f654f01",
+      "references": [],
+      "title": "@decorator in es5"
     }
   ]
 }

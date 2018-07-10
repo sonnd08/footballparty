@@ -1,9 +1,17 @@
-.matchsFilterContainer{
- .quickMatchBtn{
-   width: 100%;
-   background: #56ab0a;
-   color: white;
-   padding: 15px;
-   border: none;
- } 
+.matchsFilterContainer {
+  .quickMatchBtn {
+    width: 100%;
+    background: #56ab0a;
+    color: white;
+    padding: 15px;
+    padding-left: 50px;
+    border: none;
+    position: relative;
+    outline: none;
+    i{
+      position: absolute;
+      left: 55px;
+      top: 18px;
+    }
+  }
 }

@@ -4,30 +4,28 @@
     {
       "icon": {
         "paths": [
-          "M0 563.2l102.4-102.4 256 256 563.2-563.2 102.4 102.4-665.6 665.6z"
+          "M983.040 660.053l88.32 88.747h-275.627l-162.133-236.8 162.133-236.8h275.627l-88.32 88.747 76.8 77.227 220.16-220.587-220.16-220.587-76.8 77.227 88.32 88.747h-332.8l-171.093 249.6-171.093-249.6h-396.8v109.227h339.627l162.133 236.8-162.133 236.8h-339.627v109.227h396.8l171.093-249.6 171.093 249.6h332.8l-88.32 88.747 76.8 77.227 220.16-220.587-220.16-220.587z"
         ],
-        "attrs": [
-          {}
-        ],
+        "attrs": [],
+        "width": 1323,
         "isMulticolor": false,
         "isMulticolor2": false,
+        "grid": 0,
         "tags": [
-          "checkmark"
+          "quickMatchIcon"
         ],
-        "grid": 20
+        "colorPermutations": {}
       },
-      "attrs": [
-        {}
-      ],
+      "attrs": [],
       "properties": {
-        "order": 1,
+        "order": 46,
         "id": 0,
-        "prevSize": 20,
-        "code": 59661,
-        "name": "checkmark"
+        "name": "quickMatchIcon",
+        "prevSize": 32,
+        "code": 59662
       },
       "setIdx": 0,
-      "setId": 7,
+      "setId": 8,
       "iconIdx": 0
     },
     {
@@ -57,11 +55,40 @@
         "order": 43,
         "id": 0,
         "name": "logoIco",
-        "prevSize": 64,
+        "prevSize": 32,
         "code": 59660
       },
-      "setIdx": 1,
+      "setIdx": 2,
       "setId": 6,
+      "iconIdx": 0
+    },
+    {
+      "icon": {
+        "paths": [
+          "M0 563.2l102.4-102.4 256 256 563.2-563.2 102.4 102.4-665.6 665.6z"
+        ],
+        "attrs": [
+          {}
+        ],
+        "isMulticolor": false,
+        "isMulticolor2": false,
+        "tags": [
+          "checkmark"
+        ],
+        "grid": 20
+      },
+      "attrs": [
+        {}
+      ],
+      "properties": {
+        "order": 1,
+        "id": 0,
+        "prevSize": 20,
+        "code": 59661,
+        "name": "checkmark"
+      },
+      "setIdx": 1,
+      "setId": 7,
       "iconIdx": 0
     },
     {
@@ -89,7 +116,7 @@
         "prevSize": 24,
         "code": 59648
       },
-      "setIdx": 2,
+      "setIdx": 3,
       "setId": 5,
       "iconIdx": 0
     },
@@ -118,7 +145,7 @@
         "prevSize": 24,
         "code": 59649
       },
-      "setIdx": 3,
+      "setIdx": 4,
       "setId": 4,
       "iconIdx": 0
     },
@@ -147,7 +174,7 @@
         "name": "arrow-right",
         "code": 59650
       },
-      "setIdx": 3,
+      "setIdx": 4,
       "setId": 4,
       "iconIdx": 1
     },
@@ -176,7 +203,7 @@
         "name": "arrow-left",
         "code": 59651
       },
-      "setIdx": 3,
+      "setIdx": 4,
       "setId": 4,
       "iconIdx": 2
     },
@@ -205,7 +232,7 @@
         "name": "arrow-down",
         "code": 59652
       },
-      "setIdx": 3,
+      "setIdx": 4,
       "setId": 4,
       "iconIdx": 3
     },
@@ -234,7 +261,7 @@
         "name": "arrow-up",
         "code": 59653
       },
-      "setIdx": 3,
+      "setIdx": 4,
       "setId": 4,
       "iconIdx": 4
     },
@@ -263,7 +290,7 @@
         "name": "keyboard_arrow_up",
         "code": 59654
       },
-      "setIdx": 4,
+      "setIdx": 5,
       "setId": 3,
       "iconIdx": 0
     },
@@ -292,7 +319,7 @@
         "name": "keyboard_arrow_right",
         "code": 59655
       },
-      "setIdx": 4,
+      "setIdx": 5,
       "setId": 3,
       "iconIdx": 1
     },
@@ -321,7 +348,7 @@
         "name": "keyboard_arrow_left",
         "code": 59656
       },
-      "setIdx": 4,
+      "setIdx": 5,
       "setId": 3,
       "iconIdx": 2
     },
@@ -350,7 +377,7 @@
         "name": "keyboard_arrow_down",
         "code": 59657
       },
-      "setIdx": 4,
+      "setIdx": 5,
       "setId": 3,
       "iconIdx": 3
     },
@@ -379,7 +406,7 @@
         "prevSize": 24,
         "code": 59658
       },
-      "setIdx": 4,
+      "setIdx": 5,
       "setId": 3,
       "iconIdx": 4
     },
@@ -411,7 +438,7 @@
         "name": "search2",
         "code": 59659
       },
-      "setIdx": 5,
+      "setIdx": 6,
       "setId": 2,
       "iconIdx": 0
     },
@@ -451,7 +478,7 @@
         "prevSize": 32,
         "code": 59772
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 124
     },
@@ -480,7 +507,7 @@
         "prevSize": 32,
         "code": 59782
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 134
     },
@@ -509,7 +536,7 @@
         "prevSize": 32,
         "code": 59863
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 215
     },
@@ -536,7 +563,7 @@
         "prevSize": 32,
         "code": 59864
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 216
     },
@@ -565,7 +592,7 @@
         "prevSize": 32,
         "code": 59865
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 217
     },
@@ -591,7 +618,7 @@
         "prevSize": 32,
         "code": 60040
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 392
     },
@@ -617,7 +644,7 @@
         "prevSize": 32,
         "code": 60041
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 393
     },
@@ -645,7 +672,7 @@
         "prevSize": 32,
         "code": 60043
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 395
     },
@@ -672,7 +699,7 @@
         "prevSize": 32,
         "code": 60044
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 396
     },
@@ -699,7 +726,7 @@
         "prevSize": 32,
         "code": 60048
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 400
     },
@@ -726,7 +753,7 @@
         "prevSize": 32,
         "code": 60049
       },
-      "setIdx": 6,
+      "setIdx": 7,
       "setId": 1,
       "iconIdx": 401
     }
@@ -743,7 +770,9 @@
     "fontPref": {
       "prefix": "icon-",
       "metadata": {
-        "fontFamily": "icomoon"
+        "fontFamily": "icomoon",
+        "majorVersion": 1,
+        "minorVersion": 0
       },
       "metrics": {
         "emSize": 1024,
@@ -751,7 +780,13 @@
         "whitespace": 50
       },
       "embed": false,
-      "resetPoint": 59648
+      "resetPoint": 59648,
+      "showSelector": false,
+      "showMetrics": true,
+      "showMetadata": true,
+      "noie8": false,
+      "ie7": false,
+      "showVersion": true
     },
     "imagePref": {
       "prefix": "icon-",
@@ -764,6 +799,7 @@
     },
     "historySize": 50,
     "showCodes": true,
-    "gridSize": 16
+    "gridSize": 16,
+    "showLiga": true
   }
 }

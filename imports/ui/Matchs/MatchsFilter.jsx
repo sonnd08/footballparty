@@ -31,7 +31,7 @@ export default class MatchsFilter extends Component {
                             <SearchBar classes="style2"/>
                         </div>
                         <div className="col-5 d-flex justify-content-end">
-                            <button className="quickMatchBtn">QUICK MATCH</button>
+                            <button className="quickMatchBtn"><i className="icon-quickMatchIcon"></i>QUICK MATCH</button>
                         </div>
                     </div>
                 </div>

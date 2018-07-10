@@ -6,7 +6,7 @@ export default class SearchBar extends Component {
 
     return (
         <div className={classes}>
-            <i className="icon-search2"/>
+            <i className="icon-search"/>
             <input type="search" name="" className="searchInput" placeholder="Search ground, team or someone..."/>
         </div>
     );
