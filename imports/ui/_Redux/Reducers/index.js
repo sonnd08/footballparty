@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux'
 
-import toggleModals from './toggleModalsReducer'
+import toggleModalsReducer from './toggleModalsReducer'
+import navReducer from './navReducer'
 
 export default combineReducers({
-  toggleModals:toggleModals
+  toggleModals:toggleModalsReducer,
+  nav: navReducer
 })

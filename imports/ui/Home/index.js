@@ -31,7 +31,7 @@ class Body extends Component {
 
 function mapStatetoProps(store){
   return {
-    upcomingModalDisplay: store.upcomingModalDisplay
+    upcomingModalDisplay: store.toggleModals.upcomingModalDisplay
   }
 };
 export default connect(mapStatetoProps)(Body);

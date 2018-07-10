@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Logo from '../Logo'
 import SearchBar from '../SearchBar'
 import UpcomingModal from './UpcomingModal'
+import NavAvatar from './_Components/NavAvatar'
 import {
   Link,
   withRouter
@@ -40,10 +41,7 @@ class Nav extends Component {
                 </ul>
               </div>
 
-              <div className="avatarContainer">
-                <img src="https://dummyimage.com/35x35/ffffff/000000" alt="" className="avatar"/>
-                <div className="downArrow"></div>
-              </div>
+              <NavAvatar/>
             </div>
           </div>
         </nav>
@@ -54,7 +52,7 @@ class Nav extends Component {
 
 function mapStatetoProps(store){
   return {
-    upcomingModalDisplay: store.upcomingModalDisplay
+    upcomingModalDisplay: store.toggleModals.upcomingModalDisplay
   }
 };
 export default connect(mapStatetoProps)(Nav)

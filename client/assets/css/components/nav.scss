@@ -68,5 +68,24 @@
       left: 45px;
       top: 15px;
     }
+    .avatarDropdown{
+      // display: none;
+      z-index: 100;
+      width: 150px;
+      padding: 1em; 
+      text-align: right;
+      background: #c9c9c9;
+      color: rgb(68, 68, 68);
+      position: absolute;
+      border-radius: 3px;
+      top:45px;
+      right: -20px;
+      p{
+        padding: 0.5em;
+        &:hover{
+          background: #adadad;
+        }
+      }
+    }
   }
 }

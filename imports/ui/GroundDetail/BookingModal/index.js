@@ -80,5 +80,5 @@ class BookingModal extends Component {
 }
 
 export default connect(store=>{return{
-  bookingModal: store.bookingModal,
+  bookingModal: store.toggleModals.bookingModal,
 }})(BookingModal)
