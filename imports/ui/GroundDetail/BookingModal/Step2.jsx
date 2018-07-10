@@ -28,8 +28,8 @@ export default class Step2 extends Component {
                     </div>
                   </div>
                   <div className="multiBtnContainer d-flex justify-conten-center">
-                    <button className="btn button p-3 firstBtn">Add to Calendar</button>
-                    <button className="btn button p-3 ">Share</button>
+                    <button className="button p-3 firstBtn">Add to Calendar</button>
+                    <button className="button p-3 ">Share</button>
                   </div>
                 </div>
 
