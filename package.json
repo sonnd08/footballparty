@@ -6,7 +6,7 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "createdbLocal": "node ./imports/api/models/db/populatedb mongodb://127.0.0.1:3001/GroundFinder"
+    "createdbLocal": "node ./imports/api/models/db/populatedb mongodb://127.0.0.1:3001/meteor"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.51",

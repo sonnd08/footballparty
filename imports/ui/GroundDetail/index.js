@@ -9,12 +9,15 @@ import {toggleBookingModal} from '../_Redux/Actions/toggleModal'
 
 import { Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
-class Body extends Component {
+import {withTracker} from 'meteor/react-meteor-data'
+import {Grounds} from '../../api/models/db/_meteor/grounds'
+class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
     this.props.dispatch(toggleBookingModal());
   }
     render() {
-      // console.log(this.props);
+      console.log('Rendering GroundDetailBody');
+      console.log(this.props.match.params);
         return (
             <div className="groundDetail container">
                 <BookingModal/>
@@ -122,5 +125,11 @@ class Body extends Component {
         );
     }
 }
-
-export default withRouter(connect(store=>{return {}})(Body));
+export default withRouter(connect(store=>{return {}})(
+  withTracker((props) => {
+    console.log('withTracker GroundDetail');
+    console.log(props);
+    return {
+      groundDetail: Grounds.find({}).fetch(),
+    };
+  })(GroundDetailBody)));

@@ -12,7 +12,7 @@ import store from './_Redux/Store'
 // App component - represents the whole app
 
 export default class App extends Component {
-
+  
   render() {
     return (
       <Provider store={store}>

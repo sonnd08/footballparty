@@ -42,9 +42,9 @@ groundSchema.statics = {
   /**
    * @param  {} cb
    */
-  // getAll: (cb) => {
-  //   colorModel.find({}, cb);
-  // }
+  getAll: (cb) => {
+    groundModel.find({}, cb);
+  }
 }
 
 const groundModel = mongoose.model('grounds', groundSchema);
