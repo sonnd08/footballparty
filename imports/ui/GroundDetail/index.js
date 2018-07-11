@@ -10,14 +10,15 @@ import {toggleBookingModal} from '../_Redux/Actions/toggleModal'
 import { Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withTracker} from 'meteor/react-meteor-data'
-import {Grounds} from '../../api/models/db/_meteor/grounds'
+import {Grounds} from '../../../lib/collections/grounds'
 class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
     this.props.dispatch(toggleBookingModal());
   }
     render() {
-      console.log('Rendering GroundDetailBody');
-      console.log(this.props.match.params);
+        let {groundDetail, isReady} = this.props;
+        if (!isReady) return <div>Loading...</div>
+        // console.log('GroundDetailBody rendering');
         return (
             <div className="groundDetail container">
                 <BookingModal/>
@@ -31,21 +32,21 @@ class GroundDetailBody extends Component {
                 <div className="row contentContainer">
                     <div className="col-lg-8">
                         <div>
-                            <img className="mainPic" src="/assets/imgs/ground.png" alt=""/>
+                            <img className="mainPic" src={groundDetail.imgURL} alt=""/>
                         </div>
                     </div>
 
                     <div className="col-lg-4 contentDetail">
-                        <h2 className="groundName">Old Trafford Stadium</h2>
-                        <p className="address">Sir Matt Busby Way, Stretford Manchester M16 0RA, UK</p>
-                        <Rating value="4.5"/>
+                        <h2 className="groundName">{groundDetail.name}</h2>
+                        <p className="address">{groundDetail.address}</p>
+                        <Rating value={groundDetail.rating}/>
                         <hr/>
                         <AvatarAndName name="Phuong Nguyen" additional="Owner"/>
                         <p className="description mt-3">Lorem ipsum dolor sit amet, consetetur
                             sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
                             magna aliquyam erat, sed diam voluptua.
                         </p>
-                        <p className="price">$25.00</p>
+                        <p className="price">${groundDetail.price}</p>
                         <p className="per">/hr</p>
                         
                         <div className="multiBtnContainer d-flex justify-conten-center row pb-3">
@@ -127,9 +128,11 @@ class GroundDetailBody extends Component {
 }
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
-    console.log('withTracker GroundDetail');
-    console.log(props);
+    console.log('GroundDetail_withTracker');
+    const isReady = Meteor.subscribe('grounds').ready();
+
     return {
-      groundDetail: Grounds.find({}).fetch(),
+      groundDetail: Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)}),
+      isReady,
     };
   })(GroundDetailBody)));

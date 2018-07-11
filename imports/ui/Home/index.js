@@ -5,7 +5,7 @@ import FilterBar from './FilterBar'
 import Loading from '../_Components/Loading';
 // import UpcomingModal from './UpcomingModal'
 import {connect} from 'react-redux'
-import {Grounds} from '../../api/models/db/_meteor/grounds'
+import {Grounds} from '../../../lib/collections/grounds'
 
 import { withTracker } from 'meteor/react-meteor-data';
 
@@ -31,8 +31,10 @@ function mapStatetoProps(store){
   }
 };
 export default withTracker(() => {
-  console.log('Grounds.find({}).fetch()');
-  console.log(Grounds.find({}).fetch());
+  // console.log('Grounds.find({}).fetch()');
+  // console.log(Grounds.find({}).fetch());
+
+  Meteor.subscribe('grounds');
   return {
     grounds: Grounds.find({}).fetch(),
   };

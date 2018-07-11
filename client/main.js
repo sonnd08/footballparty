@@ -10,10 +10,11 @@ import Home from '../imports/ui/Home';
 import GroundDetail from '../imports/ui/GroundDetail';
 import Matchs from '../imports/ui/Matchs';
  
-// Subscribe to the count for the current room.
-Meteor.subscribe('grounds');
+
 
 Meteor.startup(() => {
+  console.log('rendering');
+  
   render(
     <Router history={browserHistory}>
       <Switch>
