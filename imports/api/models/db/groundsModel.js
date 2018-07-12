@@ -35,6 +35,10 @@ var groundSchema = new Schema({
   dateAndTime: {
     type: Date,
     default: Date.now
+  },
+  founderId:{
+    type: Schema.ObjectId,
+    required:true
   }
 });
 

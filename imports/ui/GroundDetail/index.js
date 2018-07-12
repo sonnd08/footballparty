@@ -44,10 +44,7 @@ class GroundDetailBody extends Component {
                         <Rating value={groundDetail.rating}/>
                         <hr/>
                         <AvatarAndName img={founderDetail.avatar} name={founderDetail.name} additional={founderDetail.title}/>
-                        <p className="description mt-3">Lorem ipsum dolor sit amet, consetetur
-                            sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-                            magna aliquyam erat, sed diam voluptua.
-                        </p>
+                        <p className="description mt-3">{groundDetail.description}</p>
                         <p className="price">${groundDetail.price}</p>
                         <p className="per">/hr</p>
                         

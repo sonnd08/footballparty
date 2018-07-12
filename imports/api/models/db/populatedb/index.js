@@ -122,7 +122,8 @@ function createGrounds(cb) {
       imgURL: 'https://upload.wikimedia.org/wikipedia/commons/4/43/Old_Trafford_inside_20060726_1.jpg',
       rating: 4.5,
       description: 'Old Trafford is a football stadium in Old Trafford, Greater Manchester, England, and the home of Manchester United. With a capacity of 74,994,[1] it is the largest club football stadium (and second largest overall after Wembley Stadium) in the United Kingdom, and the eleventh-largest in Europe.[2] It is about 0.5 miles (800 m) from Old Trafford Cricket Ground and the adjacent tram stop.',
-      price: 35
+      price: 35,
+      founderId: _users[0]._id
     }
 
     groundCreater(ground, callback);
@@ -134,7 +135,8 @@ function createGrounds(cb) {
       imgURL: 'https://i.ytimg.com/vi/Rmrjtd_edS4/maxresdefault.jpg',
       rating: 4,
       description: 'The Mỹ Đình National Stadium (Vietnamese: Sân vận động Quốc gia Mỹ Đình) is a multi-use stadium in Nam Từ Liêm, Hanoi (Vietnam). It has a capacity of 40,192 seats and is the centerpiece of Vietnam\'s National Sports Complex. It was officially opened in September 2003 and was the main venue for the Southeast Asian Games later that year, hosting the opening and closing ceremony as well as the men\'s football and athletics events.',
-      price: 25
+      price: 25,
+      founderId: _users[0]._id
     }
     groundCreater(ground, callback);
   })
@@ -147,7 +149,8 @@ function createGrounds(cb) {
         imgURL: googleImageResult[i].url,
         rating: faker.finance.amount(0, 5, 1),
         description: faker.lorem.sentences(),
-        price: faker.finance.amount(10, 100, 0)
+        price: faker.finance.amount(10, 100, 0),
+        founderId: faker.random.arrayElement(_users)._id
       }
       // console.log('log');
       console.log(ground);
@@ -164,11 +167,11 @@ function createUsers(cb) {
   execArray = [];
   execArray.push(function (callback) {
     const user = {
-      name: 'Nguyễn Đình Sơn'
-      ,avatar: 'https://lh3.googleusercontent.com/-GBU_t2ZlroE/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7rCR6xpg_Cp4_1j7cYBczqgtIV4eQ/s64-c-mo/photo.jpg'
-      ,email: '001.icetea@gmail.com'
-      ,password: '123456'
-      ,title: 'Owner'
+      name: 'Nguyễn Đình Sơn',
+      avatar: 'https://lh3.googleusercontent.com/-GBU_t2ZlroE/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7rCR6xpg_Cp4_1j7cYBczqgtIV4eQ/s64-c-mo/photo.jpg',
+      email: '001.icetea@gmail.com',
+      password: '123456',
+      title: 'Owner'
     }
 
     userCreater(user, callback);
@@ -177,14 +180,14 @@ function createUsers(cb) {
   for (let i = 0; i < MAX_USERS; i++) {
     execArray.push(function (callback) {
       const user = {
-        name: faker.name.findName()
-        ,avatar: faker.image.avatar()
-        ,email: faker.internet.email()
-        ,password: faker.internet.password()
-        ,title: faker.random.arrayElement(['Owner','None', 'Shipper', 'Player', 'Goal Keeper'])
-        ,dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
+        name: faker.name.findName(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+        password: faker.internet.password(),
+        title: faker.random.arrayElement(['Owner', 'None', 'Shipper', 'Player', 'Goal Keeper']),
+        dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
       }
-  
+
       userCreater(user, callback);
     });
   }
@@ -202,13 +205,13 @@ function createComments(cb) {
         userId: selectedUser._id,
         userName: selectedUser.name,
         userAvatar: selectedUser.avatar,
-        rating:faker.finance.amount(1,5,1),
-        groundId:faker.random.arrayElement(_grounds)._id,
-        comment:faker.lorem.sentences(),
-        userTitle:selectedUser.title,
+        rating: faker.finance.amount(1, 5, 1),
+        groundId: faker.random.arrayElement(_grounds)._id,
+        comment: faker.lorem.sentences(),
+        userTitle: selectedUser.title,
         dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
       }
-  
+
       commentCreater(cmt, callback);
     });
   }
@@ -224,8 +227,8 @@ Promise.all([dropDatabasePromise, fetchImagePromise])
   .then(results => {
     async
     .series([
-        createGrounds,
         createUsers,
+        createGrounds,
         createComments
       ],
       // Optional callback
