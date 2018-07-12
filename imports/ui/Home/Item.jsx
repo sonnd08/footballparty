@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom'
 export default class Ground extends Component {
   render() {
     let {info} = this.props;
-    console.log(info);
+    // console.log(info);
     return (
         <div className="itemContainer col-lg-4">
             <Link to={`GroundDetail/${info._id._str}`}>

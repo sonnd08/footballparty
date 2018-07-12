@@ -2,50 +2,46 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var groundSchema = new Schema({
-  name: {
+var userSchema = new Schema({
+  userName: {
     type: String,
     unique: true,
     required: true,
     max: 100,
   },
-  address: {
+  userAvatar: {
     type: String,
     required: true,
     max: 300,
   },
-  imgURL:{
+  email:{
     type: String,
     required: true,
     max: 500,
   },
-  rating:{
+  password:{
     type: Number,
     required:true,
     default: 0
   },
-  description:{
-    type: String,
-    required:true
-  },
-  price:{
+  userTitle:{
     type: Number,
     required: true,
   },
-  dateAndTime: {
+  dateCreated: {
     type: Date,
     default: Date.now
   }
 });
 
-groundSchema.statics = {
+userSchema.statics = {
   /**
    * @param  {} cb
    */
   getAll: (cb) => {
-    groundModel.find({}, cb);
+    usersModel.find({}, cb);
   }
 }
 
-const groundModel = mongoose.model('grounds', groundSchema);
-module.exports = groundModel;
+const usersModel = mongoose.model('users', userSchema);
+module.exports = usersModel;

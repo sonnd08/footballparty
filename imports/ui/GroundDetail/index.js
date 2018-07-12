@@ -128,11 +128,12 @@ class GroundDetailBody extends Component {
 }
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
-    console.log('GroundDetail_withTracker');
-    const isReady = Meteor.subscribe('grounds').ready();
-
+    console.log('GroundDetail_withTracker start to subscription');
+    const groundDetail = Meteor.subscribe('grounds');
+    // const isReady = Meteor.subscribe('grounds').ready();
+    console.log('finished subscription');
     return {
       groundDetail: Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)}),
-      isReady,
+      isReady: groundDetail.ready(),
     };
   })(GroundDetailBody)));

@@ -30,5 +30,9 @@
       "server": "server/main.js"
     },
     "testModule": "tests/main.js"
+  },
+  "devDependencies": {
+    "faker": "^4.1.0",
+    "g-i-s": "^2.1.2"
   }
 }

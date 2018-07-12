@@ -18,7 +18,7 @@ export default class App extends Component {
       <Provider store={store}>
         <div>
           <Nav/>
-          {this.props.body}
+          {this.props.children}
           <Footer/>
         </div>
       </Provider>

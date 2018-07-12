@@ -17,10 +17,7 @@
       "id": "20180709104933_552222073_2a0732ea55274e202a574e552511a31b",
       "references": [],
       "title": "Slider for datepicker"
-    }
-  ],
-  "in-progress": [],
-  "testing": [
+    },
     {
       "assignedTo": {
         "name": "Son Nguyen Dinh"
@@ -31,6 +28,8 @@
       "title": "avatar popup"
     }
   ],
+  "in-progress": [],
+  "testing": [],
   "todo": [
     {
       "assignedTo": {
