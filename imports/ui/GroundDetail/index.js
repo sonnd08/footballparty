@@ -121,7 +121,7 @@ export default withRouter(connect(store=>{return {}})(
       founderDetail = Users.findOne({_id: groundDetail.founderId});
       cmts = Comments.find({groundId: groundDetail._id}).fetch();
     }
-    console.log(cmts);
+    // console.log(cmts);
     
     isReady = isReady && groundDetail && founderDetail && cmts
     

@@ -14,19 +14,20 @@ export default class Comment extends Component {
         nextArrow: <NextArrow />,
         prevArrow: <PrevArrow />,
         className:"d-flex",
+        swipeToSlide:true,
         responsive: [
           {
-            breakpoint: 1024,
+            breakpoint: 1690,
             settings: {
-              slidesToShow: 10,
-              slidesToScroll: 3,
+              slidesToShow: 17,
+              slidesToScroll: 1,
             }
           },
           {
             breakpoint: 600,
             settings: {
               slidesToShow: 7,
-              slidesToScroll: 3,
+              slidesToScroll: 1,
             }
           },
           {
