@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var commentSchema = new Schema({
-  userID:{
+  userId:{
     type: Schema.ObjectId,
     required:true,
   },
@@ -11,29 +11,25 @@ var commentSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-    max: 100,
   },
   userAvatar: {
     type: String,
     required: true,
-    max: 300,
   },
   rating:{
-    type: String,
-    required: true,
-    max: 500,
-  },
-  groundID:{
     type: Number,
-    required:true,
-    default: 0
+    required: true,
+  },
+  groundId:{
+    type: Schema.ObjectId,
+    required:true
   },
   comment:{
     type: String,
     required:true
   },
   userTitle:{
-    type: Number,
+    type: String,
     required: true,
   },
   dateCreated: {

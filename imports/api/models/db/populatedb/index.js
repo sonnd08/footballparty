@@ -6,7 +6,7 @@ const faker = require('faker')
 const gis = require('g-i-s')
 
 const Ground = require('../groundsModel')
-const Comment = require('../commentsModal')
+const Comment = require('../commentsModel')
 const User = require('../usersModel')
 
 const MAX_GROUNDS = 150;
@@ -178,9 +178,9 @@ function createUsers(cb) {
     execArray.push(function (callback) {
       const user = {
         name: faker.name.findName()
-        ,avatar: faker.image.avatar
-        ,email: faker.internet.email
-        ,password: faker.internet.password
+        ,avatar: faker.image.avatar()
+        ,email: faker.internet.email()
+        ,password: faker.internet.password()
         ,title: faker.random.arrayElement(['Owner','None', 'Shipper', 'Player', 'Goal Keeper'])
         ,dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
       }
@@ -188,11 +188,32 @@ function createUsers(cb) {
       userCreater(user, callback);
     });
   }
-
-
   async.series(execArray, cb);
 }
 
+
+function createComments(cb) {
+  execArray = [];
+
+  for (let i = 0; i < MAX_USERS; i++) {
+    execArray.push(function (callback) {
+      const selectedUser = faker.random.arrayElement(_users);
+      const cmt = {
+        userId: selectedUser._id,
+        userName: selectedUser.name,
+        userAvatar: selectedUser.avatar,
+        rating:faker.finance.amount(1,5,1),
+        groundId:faker.random.arrayElement(_grounds)._id,
+        comment:faker.lorem.sentences(),
+        userTitle:selectedUser.title,
+        dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
+      }
+  
+      commentCreater(cmt, callback);
+    });
+  }
+  async.series(execArray, cb);
+}
 
 
 
@@ -204,7 +225,8 @@ Promise.all([dropDatabasePromise, fetchImagePromise])
     async
     .series([
         createGrounds,
-        createUsers
+        createUsers,
+        createComments
       ],
       // Optional callback
       function (err, results) {
