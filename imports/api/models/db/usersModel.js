@@ -3,13 +3,13 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var userSchema = new Schema({
-  userName: {
+  name: {
     type: String,
     unique: true,
     required: true,
     max: 100,
   },
-  userAvatar: {
+  avatar: {
     type: String,
     required: true,
     max: 300,
@@ -20,13 +20,11 @@ var userSchema = new Schema({
     max: 500,
   },
   password:{
-    type: Number,
+    type: String,
     required:true,
-    default: 0
   },
-  userTitle:{
-    type: Number,
-    required: true,
+  title:{
+    type: String
   },
   dateCreated: {
     type: Date,

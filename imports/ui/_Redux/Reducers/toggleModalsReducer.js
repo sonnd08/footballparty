@@ -6,7 +6,7 @@ export default function reducer(state={
     currStep: 1
   }
 }, action){
-  console.log(action.type);
+  // console.log(action.type);
   switch(action.type){
     case "toggleUpcomingModal":{
       let newValue = state.upcomingModalDisplay==="none"?"block":"none"

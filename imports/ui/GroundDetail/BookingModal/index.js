@@ -41,7 +41,7 @@ class BookingModal extends Component {
   render() {
     let {bookingModal} = this.props;
     let stepToRender;
-    console.log(bookingModal.currStep);
+    // console.log(bookingModal.currStep);
     switch(bookingModal.currStep){
       case 2:{
         stepToRender= <Step2/>;

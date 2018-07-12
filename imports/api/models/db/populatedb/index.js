@@ -7,8 +7,11 @@ const gis = require('g-i-s')
 
 const Ground = require('../groundsModel')
 const Comment = require('../commentsModal')
+const User = require('../usersModel')
 
 const MAX_GROUNDS = 150;
+const MAX_USERS = 150;
+
 let googleImageResult = []
 let _grounds = []
 let _comments = []
@@ -38,9 +41,11 @@ mongoose
   .on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 
-dropDatabasePromise = new Promise((resolve, reject)=>{
+
+//PROMISES 
+dropDatabasePromise = new Promise((resolve, reject) => {
   db.dropDatabase((err) => {
-    if(err) reject(err);
+    if (err) reject(err);
     console.log('Database was dropped')
     console.log('Importing new data...')
     resolve();
@@ -58,16 +63,16 @@ fetchImagePromise = new Promise((resolve, reject) => {
     }
   });
 })
+//PROMISES END
 
 
 
+//CREATORS
 function groundCreater(obj, cb) {
   let ground = new Ground(obj);
 
   ground.save(function (err) {
     if (err) {
-      console.log(err);
-      return;
       cb(err, null);
       return;
     }
@@ -77,22 +82,36 @@ function groundCreater(obj, cb) {
   });
 }
 
+function commentCreater(obj, cb) {
+  let comment = new Comment(obj);
+
+  comment.save(function (err) {
+    if (err) {
+      cb(err, null);
+      return;
+    }
+    console.log('New comment: ' + comment);
+    _comments.push(comment)
+    cb(null, comment);
+  });
+}
+
+function userCreater(obj, cb) {
+  let user = new User(obj);
+
+  user.save(function (err) {
+    if (err) {
+      cb(err, null);
+      return;
+    }
+    console.log('New user: ' + user);
+    _users.push(user)
+    cb(null, user);
+  });
+}
+//CREATORS END
 
 
-
-// function commentCreater(obj, cb) {
-//   let comment = new Comment(obj);
-
-//   comment.save(function (err) {
-//     if (err) {
-//       cb(err, null);
-//       return;
-//     }
-//     console.log('New comment: ' + comment);
-//     _comments.push(comment)
-//     cb(null, comment);
-//   });
-// }
 
 function createGrounds(cb) {
   execArray = [];
@@ -120,7 +139,7 @@ function createGrounds(cb) {
     groundCreater(ground, callback);
   })
 
-  for (let i = 0; i < MAX_GROUNDS; i++) {
+  for (let i = 0; i < googleImageResult.length; i++) {
     execArray.push(function randomGroundGenerator(callback) {
       const ground = {
         name: `${faker.address.city()} Stadium`,
@@ -130,7 +149,7 @@ function createGrounds(cb) {
         description: faker.lorem.sentences(),
         price: faker.finance.amount(10, 100, 0)
       }
-      console.log('log');
+      // console.log('log');
       console.log(ground);
       groundCreater(ground, callback);
     });
@@ -141,11 +160,51 @@ function createGrounds(cb) {
 }
 
 
+function createUsers(cb) {
+  execArray = [];
+  execArray.push(function (callback) {
+    const user = {
+      name: 'Nguyễn Đình Sơn'
+      ,avatar: 'https://lh3.googleusercontent.com/-GBU_t2ZlroE/AAAAAAAAAAI/AAAAAAAAAAA/AAnnY7rCR6xpg_Cp4_1j7cYBczqgtIV4eQ/s64-c-mo/photo.jpg'
+      ,email: '001.icetea@gmail.com'
+      ,password: '123456'
+      ,title: 'Owner'
+    }
+
+    userCreater(user, callback);
+  })
+
+  for (let i = 0; i < MAX_USERS; i++) {
+    execArray.push(function (callback) {
+      const user = {
+        name: faker.name.findName()
+        ,avatar: faker.image.avatar
+        ,email: faker.internet.email
+        ,password: faker.internet.password
+        ,title: faker.random.arrayElement(['Owner','None', 'Shipper', 'Player', 'Goal Keeper'])
+        ,dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
+      }
+  
+      userCreater(user, callback);
+    });
+  }
+
+
+  async.series(execArray, cb);
+}
+
+
+
+
+
+
+
 Promise.all([dropDatabasePromise, fetchImagePromise])
-  .then(results=>{
+  .then(results => {
     async
     .series([
-        createGrounds
+        createGrounds,
+        createUsers
       ],
       // Optional callback
       function (err, results) {
@@ -153,7 +212,7 @@ Promise.all([dropDatabasePromise, fetchImagePromise])
           console.log('FINAL ERR: ' + err);
         } else {
           console.log('No errors');
-    
+
         }
         // All done, disconnect from database
         mongoose

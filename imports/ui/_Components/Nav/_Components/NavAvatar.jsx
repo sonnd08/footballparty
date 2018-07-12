@@ -12,7 +12,7 @@ class NavAvatar extends Component {
   }
   render() {
     
-    console.log('NavAvatar');
+    // console.log('NavAvatar');
     return (
       <div className="avatarContainer" onClick={this.toggleNavAvatar}>
         <img src="https://dummyimage.com/35x35/ffffff/000000" alt="" className="avatar"/>
@@ -27,7 +27,7 @@ class NavAvatar extends Component {
 }
 
 function mapStatetoProps(store){
-  console.log(store);
+  // console.log(store);
   return {
     dropdownDisplay: store.nav.dropdownDisplay
   }
