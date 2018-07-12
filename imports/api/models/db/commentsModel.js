@@ -9,7 +9,6 @@ var commentSchema = new Schema({
   },
   userName: {
     type: String,
-    unique: true,
     required: true,
   },
   userAvatar: {

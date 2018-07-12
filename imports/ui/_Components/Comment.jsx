@@ -7,6 +7,7 @@ export default class Comment extends Component {
         return (
             <div className="commentContainer">
                 <AvatarAndName 
+                    img={this.props.img}
                     name={this.props.name}
                     additional={this.props.additional}
                     ratingObj={this.props.ratingObj}

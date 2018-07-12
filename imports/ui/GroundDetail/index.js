@@ -12,13 +12,14 @@ import {connect} from 'react-redux'
 import {withTracker} from 'meteor/react-meteor-data'
 import {Grounds} from '../../../lib/collections/grounds'
 import {Users} from '../../../lib/collections/users'
+import {Comments} from '../../../lib/collections/comments'
 
 class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
     this.props.dispatch(toggleBookingModal());
   }
     render() {
-        let {groundDetail, isReady, founderDetail} = this.props;
+        let {groundDetail, isReady, founderDetail, cmts} = this.props;
         if (!isReady) return <div>Loading...</div>
         // console.log('GroundDetailBody rendering');
         return (
@@ -64,36 +65,20 @@ class GroundDetailBody extends Component {
                 <div className="row mt-5">
                     <div className="col-lg-8 commentsContainer">
                         <span className="title">Comments &amp; Reviews &nbsp;</span>
-                        <span className="sumOfCmts">(4)</span>
+                        <span className="sumOfCmts">({cmts.length})</span>
 
                         <div className="userCmts mt-5">
-                            <Comment 
-                                name="Phuong Nguyen" 
-                                additional="Owner" 
-                                ratingObj={<Rating value="4.5"/>}
-                                cmt={"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."}
+                          {cmts.map((cmt, i)=>{
+                            return <Comment 
+                              key={i}
+                              img={cmt.userAvatar}
+                              name={cmt.userName}
+                              additional={cmt.userTitle} 
+                              ratingObj={<Rating value={cmt.rating}/>}
+                              cmt={cmt.comment}
                             />
-
-                            <Comment 
-                                name="Ronaldo" 
-                                additional="Owner" 
-                                ratingObj={<Rating value="1.5"/>}
-                                cmt={"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."}
-                            />
-
-                            <Comment 
-                                name="Phuong Nguyen" 
-                                additional="Owner" 
-                                ratingObj={<Rating value="3"/>}
-                                cmt={"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."}
-                            />
-
-                            <Comment 
-                                name="Phuong Nguyen" 
-                                additional="Owner" 
-                                ratingObj={<Rating value="5"/>}
-                                cmt={"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."}
-                            />
+                          })}
+                            
                         </div>
 
                     </div>
@@ -128,19 +113,23 @@ class GroundDetailBody extends Component {
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
     console.log('GroundDetail_withTracker start to subscription');
-    let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('users')
+    let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('users') && Meteor.subscribe('comments')
     let founderDetail;
+    let cmts;
     const groundDetail = Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)});
-    if(groundDetail)
+    if(groundDetail){
       founderDetail = Users.findOne({_id: groundDetail.founderId});
-    // console.log(founderDetail);
+      cmts = Comments.find({groundId: groundDetail._id}).fetch();
+    }
+    console.log(cmts);
     
-    isReady = isReady && groundDetail && founderDetail
+    isReady = isReady && groundDetail && founderDetail && cmts
     
     console.log('finished subscription');
     return {
       groundDetail,
       founderDetail,
+      cmts,
       isReady
     };    
   })(GroundDetailBody)));

@@ -9,7 +9,7 @@ const Ground = require('../groundsModel')
 const Comment = require('../commentsModel')
 const User = require('../usersModel')
 
-const MAX_GROUNDS = 150;
+const MAX_GROUNDS = 10;
 const MAX_USERS = 150;
 
 let googleImageResult = []
@@ -141,7 +141,7 @@ function createGrounds(cb) {
     groundCreater(ground, callback);
   })
 
-  for (let i = 0; i < googleImageResult.length; i++) {
+  for (let i = 0; i < MAX_GROUNDS; i++) {
     execArray.push(function randomGroundGenerator(callback) {
       const ground = {
         name: `${faker.address.city()} Stadium`,
