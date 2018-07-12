@@ -11,12 +11,14 @@ import { Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withTracker} from 'meteor/react-meteor-data'
 import {Grounds} from '../../../lib/collections/grounds'
+import {Users} from '../../../lib/collections/users'
+
 class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
     this.props.dispatch(toggleBookingModal());
   }
     render() {
-        let {groundDetail, isReady} = this.props;
+        let {groundDetail, isReady, founderDetail} = this.props;
         if (!isReady) return <div>Loading...</div>
         // console.log('GroundDetailBody rendering');
         return (
@@ -41,7 +43,7 @@ class GroundDetailBody extends Component {
                         <p className="address">{groundDetail.address}</p>
                         <Rating value={groundDetail.rating}/>
                         <hr/>
-                        <AvatarAndName name="Phuong Nguyen" additional="Owner"/>
+                        <AvatarAndName img={founderDetail.avatar} name={founderDetail.name} additional={founderDetail.title}/>
                         <p className="description mt-3">Lorem ipsum dolor sit amet, consetetur
                             sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
                             magna aliquyam erat, sed diam voluptua.
@@ -129,11 +131,19 @@ class GroundDetailBody extends Component {
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
     console.log('GroundDetail_withTracker start to subscription');
-    const groundDetail = Meteor.subscribe('grounds');
-    // const isReady = Meteor.subscribe('grounds').ready();
+    let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('users')
+    let founderDetail;
+    const groundDetail = Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)});
+    if(groundDetail)
+      founderDetail = Users.findOne({_id: groundDetail.founderId});
+    // console.log(founderDetail);
+    
+    isReady = isReady && groundDetail && founderDetail
+    
     console.log('finished subscription');
     return {
-      groundDetail: Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)}),
-      isReady: groundDetail.ready(),
-    };
+      groundDetail,
+      founderDetail,
+      isReady
+    };    
   })(GroundDetailBody)));
