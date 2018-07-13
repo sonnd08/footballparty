@@ -13,10 +13,14 @@ import {withTracker} from 'meteor/react-meteor-data'
 import {Grounds} from '../../../lib/collections/grounds'
 import {Users} from '../../../lib/collections/users'
 import {Comments} from '../../../lib/collections/comments'
+import { clearScreenDown } from 'readline';
 
 class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
     this.props.dispatch(toggleBookingModal());
+  }
+  componentDidUpdate(prevProps) {
+      window.scrollTo(0, 0)
   }
     render() {
         let {groundDetail, isReady, founderDetail, cmts} = this.props;

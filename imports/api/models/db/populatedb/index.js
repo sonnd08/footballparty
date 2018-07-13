@@ -9,7 +9,7 @@ const Ground = require('../groundsModel')
 const Comment = require('../commentsModel')
 const User = require('../usersModel')
 
-const MAX_GROUNDS = 10;
+const MAX_GROUNDS = 100;
 const MAX_USERS = 150;
 
 let googleImageResult = []
@@ -159,7 +159,7 @@ function createGrounds(cb) {
   }
 
 
-  async.series(execArray, cb);
+  async.parallel(execArray, cb);
 }
 
 
@@ -215,7 +215,7 @@ function createComments(cb) {
       commentCreater(cmt, callback);
     });
   }
-  async.series(execArray, cb);
+  async.parallel(execArray, cb);
 }
 
 
