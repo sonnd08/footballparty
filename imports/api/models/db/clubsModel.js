@@ -8,6 +8,12 @@ var clubSchema = new Schema({
     required:true,
     ref: 'users'
   },
+  founderName:{
+    type:String,
+  },
+  founderAvatar:{
+    type:String,
+  },
   name:{
     type:String,
     required:true,

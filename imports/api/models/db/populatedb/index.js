@@ -260,6 +260,8 @@ function createClubs(cb) {
       const selectedUser = faker.random.arrayElement(_users);
       const club = {
         founderId: selectedUser._id,
+        founderName: selectedUser.name,
+        founderAvatar: selectedUser.avatar,
         name: faker.company.companyName(),
         avatar:imagesForClubs[i].url,
         rating:faker.finance.amount(1,5,1),
