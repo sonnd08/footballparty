@@ -40,14 +40,12 @@ class Matchs extends Component {
                       />
                     </div>
                     <div className="matchFooter d-flex justify-content-between">
-                      <AuthorAvatarAndName 
+                      <AuthorAvatarAndName
                         name={club.founderName}
                         img={club.founderAvatar}
                       />
 
-                      <NumOfPlayers value={()=>{
-                        Users.find({clubs})
-                      }}/>
+                      <NumOfPlayers clubId={club._id} />
 
                       <div className="joinBtnContainer ml-auto">
                         <button className="joinBtn">JOIN</button>
@@ -71,10 +69,9 @@ class Matchs extends Component {
 
 export default withTracker(() => {
   let clubsSub = Meteor.subscribe('clubs').ready();
-  Meteor.subscribe('Users');
   let clubs = Clubs.find({}).fetch();
   let isReady = clubsSub;
-  
+
   // console.log('clubsSub:', clubsSub);
   // console.log('clubs:', clubs);
   // console.log('isReady: ', isReady);

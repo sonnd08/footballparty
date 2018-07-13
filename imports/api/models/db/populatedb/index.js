@@ -314,6 +314,7 @@ function createClubs(cb) {
         name: faker.company.companyName(),
         avatar: imagesForClubs[i].url,
         rating: faker.finance.amount(1, 5, 1),
+        numOfPlayers: Math.floor(Math.random()*(12))
       }
 
       clubCreater(club, callback);
