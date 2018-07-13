@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var userSchema = new Schema({
+var matchSchema = new Schema({
   email:{
     type: String,
     unique: true,
@@ -29,23 +29,17 @@ var userSchema = new Schema({
   dateCreated: {
     type: Date,
     default: Date.now
-  },
-  clubs:[
-    {
-      type:Schema.ObjectId,
-      ref:'clubs'
-    }
-  ]
+  }
 });
 
-userSchema.statics = {
+matchSchema.statics = {
   /**
    * @param  {} cb
    */
   getAll: (cb) => {
-    usersModel.find({}, cb);
+    matchModel.find({}, cb);
   }
 }
 
-const usersModel = mongoose.model('users', userSchema);
-module.exports = usersModel;
+const matchModel = mongoose.model('matchs', matchSchema);
+module.exports = matchModel;

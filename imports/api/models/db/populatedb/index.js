@@ -4,18 +4,23 @@ const async = require('async')
 const mongoose = require('mongoose')
 const faker = require('faker')
 const gis = require('g-i-s')
+const _ = require('lodash')
 
 const Ground = require('../groundsModel')
 const Comment = require('../commentsModel')
 const User = require('../usersModel')
+const Club = require('../clubsModel')
 
 const MAX_GROUNDS = 100;
 const MAX_USERS = 150;
+const MAX_CLUBS = 15;
 
-let googleImageResult = []
+let imagesForStadiums = []
+let imagesForClubs = []
 let _grounds = []
 let _comments = []
 let _users = []
+let _clubs = []
 
 console.log('This script populates some data to your' +
   ' database. Specified database as argument - e.g.: populatedb mongodb://your_user' +
@@ -51,14 +56,27 @@ dropDatabasePromise = new Promise((resolve, reject) => {
     resolve();
   });
 })
-fetchImagePromise = new Promise((resolve, reject) => {
-  console.log('Fetching data from google image...');
+fetchStadiumImgsPromise = new Promise((resolve, reject) => {
+  console.log('Fetching stadium imgs from google image...');
   gis('stadium', (error, results) => {
     if (error) {
       reject(error);
     } else {
-      googleImageResult = results;
-      console.log(Object.keys(googleImageResult).length, " results were fetched");
+      imagesForStadiums = results;
+      console.log(Object.keys(imagesForStadiums).length, " results were fetched");
+      resolve(results);
+    }
+  });
+})
+
+fetchClubImgsPromise = new Promise((resolve, reject) => {
+  console.log('Fetching club imgs from google image...');
+  gis('football logo', (error, results) => {
+    if (error) {
+      reject(error);
+    } else {
+      imagesForClubs = results;
+      console.log(Object.keys(imagesForClubs).length, " results were fetched");
       resolve(results);
     }
   });
@@ -68,6 +86,7 @@ fetchImagePromise = new Promise((resolve, reject) => {
 
 
 //CREATORS
+
 function groundCreater(obj, cb) {
   let ground = new Ground(obj);
 
@@ -109,6 +128,21 @@ function userCreater(obj, cb) {
     cb(null, user);
   });
 }
+
+
+function clubCreater(obj, cb) {
+  let club = new Club(obj);
+
+  club.save(function (err) {
+    if (err) {
+      cb(err, null);
+      return;
+    }
+    console.log('New club: ' + club);
+    _clubs.push(club)
+    cb(null, club);
+  });
+}
 //CREATORS END
 
 
@@ -146,7 +180,7 @@ function createGrounds(cb) {
       const ground = {
         name: `${faker.address.city()} Stadium`,
         address: `${faker.address.streetAddress()}, ${faker.address.city()}, ${faker.address.state()}, ${faker.address.country()}` + 'Sir Matt Busby Way, Stretford Manchester M16 0RA, UK',
-        imgURL: googleImageResult[i].url,
+        imgURL: imagesForStadiums[i].url,
         rating: faker.finance.amount(0, 5, 1),
         description: faker.lorem.sentences(),
         price: faker.finance.amount(10, 100, 0),
@@ -218,18 +252,59 @@ function createComments(cb) {
   async.parallel(execArray, cb);
 }
 
+function createClubs(cb) {
+  execArray = [];
+
+  for (let i = 0; i < MAX_CLUBS; i++) {
+    execArray.push(function (callback) {
+      const selectedUser = faker.random.arrayElement(_users);
+      const club = {
+        founderId: selectedUser._id,
+        name: faker.company.companyName(),
+        avatar:imagesForClubs[i].url,
+        rating:faker.finance.amount(1,5,1),
+      }
+
+      clubCreater(club, callback);
+    });
+  }
+  async.parallel(execArray, cb);
+}
+
+// function addSomeUsersToCLubs(cb) {
+//   console.log('Number of clubs:', _clubs.length);
+//   let oldUserIterator = 0;
+//   let currUserIterator = 0;
+//   _clubs.map((club)=>{
+//     currUserIterator+= 5 + Math.random()*(12-5);
+//     for(let i = oldUserIterator; i< currUserIterator; i++){
+//       _users[i].(club._id)
+
+//       _users[i].save(function (err) {
+//         if (err) {
+//           cb(err, null)
+//           return;
+//         }
+//         oldUserIterator = currUserIterator;
+//         console.log(`Added user ${_users[i]._id} to club ${club._id}`);
+//       });
+//     }
+//   })
+// }
 
 
 
 
 
-Promise.all([dropDatabasePromise, fetchImagePromise])
+Promise.all([dropDatabasePromise, fetchStadiumImgsPromise, fetchClubImgsPromise])
   .then(results => {
     async
     .series([
         createUsers,
         createGrounds,
-        createComments
+        createComments,
+        createClubs,
+        // addSomeUsersToCLubs
       ],
       // Optional callback
       function (err, results) {
