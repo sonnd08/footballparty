@@ -9,27 +9,6 @@ var matchSchema = new Schema({
     required: true,
     max: 500,
   },
-  name: {
-    type: String,
-    required: true,
-    max: 100,
-  },
-  avatar: {
-    type: String,
-    required: true,
-    max: 300,
-  },
-  password:{
-    type: String,
-    required:true,
-  },
-  title:{
-    type: String
-  },
-  dateCreated: {
-    type: Date,
-    default: Date.now
-  }
 });
 
 matchSchema.statics = {

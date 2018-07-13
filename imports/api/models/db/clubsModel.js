@@ -30,6 +30,10 @@ var clubSchema = new Schema({
   dateCreated:{
     type: Date,
     default: Date.now()
+  },
+  numOfPlayers:{
+    type: Number,
+    default:0
   }
 });
 
