@@ -6,13 +6,11 @@
     "test": "meteor test --once --driver-package meteortesting:mocha",
     "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
     "visualize": "meteor --production --extra-packages bundle-visualizer",
-    "createdbLocal": "node ./imports/api/models/db/populatedb mongodb://127.0.0.1:3001/meteor"
+    "createdb": "node ./imports/api/models/db/populatedb mongodb://127.0.0.1:3001/meteor"
   },
   "dependencies": {
     "@babel/runtime": "^7.0.0-beta.51",
-    "async": "^2.6.1",
     "meteor-node-stubs": "^0.4.1",
-    "mongoose": "^5.2.2",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-modal": "^3.5.1",
@@ -32,8 +30,10 @@
     "testModule": "tests/main.js"
   },
   "devDependencies": {
+    "async": "^2.6.1",
     "faker": "^4.1.0",
     "g-i-s": "^2.1.2",
-    "lodash": "^4.17.10"
+    "lodash": "^4.17.10",
+    "mongoose": "^5.2.2"
   }
 }

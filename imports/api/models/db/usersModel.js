@@ -30,12 +30,10 @@ var userSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  clubs:[
-    {
-      type:Schema.ObjectId,
-      ref:'clubs'
-    }
-  ]
+  clubs:{
+    type: Schema.ObjectId,
+  },
+  
 });
 
 userSchema.statics = {

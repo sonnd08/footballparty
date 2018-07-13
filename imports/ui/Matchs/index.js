@@ -45,7 +45,9 @@ class Matchs extends Component {
                         img={club.founderAvatar}
                       />
 
-                      <NumOfPlayers />
+                      <NumOfPlayers value={()=>{
+                        Users.find({clubs})
+                      }}/>
 
                       <div className="joinBtnContainer ml-auto">
                         <button className="joinBtn">JOIN</button>
@@ -69,6 +71,7 @@ class Matchs extends Component {
 
 export default withTracker(() => {
   let clubsSub = Meteor.subscribe('clubs').ready();
+  Meteor.subscribe('Users');
   let clubs = Clubs.find({}).fetch();
   let isReady = clubsSub;
   

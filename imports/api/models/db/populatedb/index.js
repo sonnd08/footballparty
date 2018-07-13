@@ -14,11 +14,13 @@ const Club = require('../clubsModel')
 const MAX_GROUNDS = 100;
 const MAX_USERS = 150;
 const MAX_CLUBS = 15;
+const MAX_ADMIN_USERS = MAX_CLUBS;
 
 let imagesForStadiums = []
 let imagesForClubs = []
 let _grounds = []
 let _comments = []
+let _adminUsers = []
 let _users = []
 let _clubs = []
 
@@ -129,6 +131,33 @@ function userCreater(obj, cb) {
   });
 }
 
+function adminCreater(obj, cb) {
+  let user = new User(obj);
+
+  user.save(function (err) {
+    if (err) {
+      cb(err, null);
+      return;
+    }
+    console.log('New user: ' + user);
+    _adminUsers.push(user)
+    cb(null, user);
+  });
+}
+// function userCreater(obj, cb) {
+//   let user = new User(obj);
+
+//   user.save(function (err) {
+//     if (err) {
+//       cb(err, null);
+//       return;
+//     }
+//     console.log('New user: ' + user);
+//     _users.push(user)
+//     cb(null, user);
+//   });
+// }
+
 
 function clubCreater(obj, cb) {
   let club = new Club(obj);
@@ -157,7 +186,7 @@ function createGrounds(cb) {
       rating: 4.5,
       description: 'Old Trafford is a football stadium in Old Trafford, Greater Manchester, England, and the home of Manchester United. With a capacity of 74,994,[1] it is the largest club football stadium (and second largest overall after Wembley Stadium) in the United Kingdom, and the eleventh-largest in Europe.[2] It is about 0.5 miles (800 m) from Old Trafford Cricket Ground and the adjacent tram stop.',
       price: 35,
-      founderId: _users[0]._id
+      founderId: _adminUsers[0]._id
     }
 
     groundCreater(ground, callback);
@@ -170,7 +199,7 @@ function createGrounds(cb) {
       rating: 4,
       description: 'The Mỹ Đình National Stadium (Vietnamese: Sân vận động Quốc gia Mỹ Đình) is a multi-use stadium in Nam Từ Liêm, Hanoi (Vietnam). It has a capacity of 40,192 seats and is the centerpiece of Vietnam\'s National Sports Complex. It was officially opened in September 2003 and was the main venue for the Southeast Asian Games later that year, hosting the opening and closing ceremony as well as the men\'s football and athletics events.',
       price: 25,
-      founderId: _users[0]._id
+      founderId: _adminUsers[0]._id
     }
     groundCreater(ground, callback);
   })
@@ -184,7 +213,7 @@ function createGrounds(cb) {
         rating: faker.finance.amount(0, 5, 1),
         description: faker.lorem.sentences(),
         price: faker.finance.amount(10, 100, 0),
-        founderId: faker.random.arrayElement(_users)._id
+        founderId: faker.random.arrayElement(_adminUsers)._id
       }
       // console.log('log');
       console.log(ground);
@@ -199,6 +228,27 @@ function createGrounds(cb) {
 
 function createUsers(cb) {
   execArray = [];
+  for (let i = 0; i < MAX_USERS; i++) {
+    execArray.push(function (callback) {
+      const user = {
+        name: faker.name.findName(),
+        avatar: faker.image.avatar(),
+        email: faker.internet.email(),
+        password: faker.internet.password(),
+        title: faker.random.arrayElement(['Owner', 'Shipper', 'Player', 'Goal Keeper']),
+        dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()]),
+        clubs: faker.random.arrayElement(_clubs)._id
+      }
+
+      userCreater(user, callback);
+    });
+  }
+  async.series(execArray, cb);
+}
+
+
+function createAdmins(cb) {
+  execArray = [];
   execArray.push(function (callback) {
     const user = {
       name: 'Nguyễn Đình Sơn',
@@ -208,26 +258,25 @@ function createUsers(cb) {
       title: 'Owner'
     }
 
-    userCreater(user, callback);
+    adminCreater(user, callback);
   })
 
-  for (let i = 0; i < MAX_USERS; i++) {
+  for (let i = 0; i < MAX_ADMIN_USERS; i++) {
     execArray.push(function (callback) {
       const user = {
         name: faker.name.findName(),
         avatar: faker.image.avatar(),
         email: faker.internet.email(),
         password: faker.internet.password(),
-        title: faker.random.arrayElement(['Owner', 'None', 'Shipper', 'Player', 'Goal Keeper']),
+        title: 'Super Mod',
         dateCreated: faker.random.arrayElement([faker.date.past(), faker.date.recent(), faker.date.future()])
       }
 
-      userCreater(user, callback);
+      adminCreater(user, callback);
     });
   }
   async.series(execArray, cb);
 }
-
 
 function createComments(cb) {
   execArray = [];
@@ -257,14 +306,14 @@ function createClubs(cb) {
 
   for (let i = 0; i < MAX_CLUBS; i++) {
     execArray.push(function (callback) {
-      const selectedUser = faker.random.arrayElement(_users);
+      const selectedUser = faker.random.arrayElement(_adminUsers);
       const club = {
         founderId: selectedUser._id,
         founderName: selectedUser.name,
         founderAvatar: selectedUser.avatar,
         name: faker.company.companyName(),
-        avatar:imagesForClubs[i].url,
-        rating:faker.finance.amount(1,5,1),
+        avatar: imagesForClubs[i].url,
+        rating: faker.finance.amount(1, 5, 1),
       }
 
       clubCreater(club, callback);
@@ -277,19 +326,22 @@ function createClubs(cb) {
 //   console.log('Number of clubs:', _clubs.length);
 //   let oldUserIterator = 0;
 //   let currUserIterator = 0;
-//   _clubs.map((club)=>{
-//     currUserIterator+= 5 + Math.random()*(12-5);
-//     for(let i = oldUserIterator; i< currUserIterator; i++){
-//       _users[i].(club._id)
+//   _clubs.map((club) => {
+//     // console.log('currUserIterator');
+//     // console.log(currUserIterator);
+//     for (let i = oldUserIterator; i < currUserIterator; i++) {
+//       currUserIterator += 5 + Math.floor(Math.random() * (12 - 5));
+//       // String.toString(club._id)
+//       console.log('updating');
+//       User.findByIdAndUpdate(_users[i]._id, {clubs: club._id}).exec((err, res)=>{
+//         if(err) console.log(err);
+//         console.log(res);
+//       })
+//       // _users[i].clubs.push('5b486828f403246fac7698cc')
 
-//       _users[i].save(function (err) {
-//         if (err) {
-//           cb(err, null)
-//           return;
-//         }
-//         oldUserIterator = currUserIterator;
-//         console.log(`Added user ${_users[i]._id} to club ${club._id}`);
-//       });
+//       // _users[i].save();
+//       // console.log(_users[i]);
+//     oldUserIterator = currUserIterator;
 //     }
 //   })
 // }
@@ -300,14 +352,14 @@ function createClubs(cb) {
 
 Promise.all([dropDatabasePromise, fetchStadiumImgsPromise, fetchClubImgsPromise])
   .then(results => {
-    async
-    .series([
-        createUsers,
-        createGrounds,
-        createComments,
-        createClubs,
-        // addSomeUsersToCLubs
-      ],
+    async.series([
+      createAdmins,
+      createGrounds,
+      createClubs,
+      createUsers,
+      createComments,
+      // addSomeUsersToCLubs
+    ],
       // Optional callback
       function (err, results) {
         if (err) {
@@ -315,11 +367,15 @@ Promise.all([dropDatabasePromise, fetchStadiumImgsPromise, fetchClubImgsPromise]
         } else {
           console.log('No errors');
 
+          // addSomeUsersToCLubs();
+          // All done, disconnect from database
+          console.log(_users);
+          mongoose
+            .connection
+            .close();
         }
-        // All done, disconnect from database
-        mongoose
-          .connection
-          .close();
       });
+
+    
   })
   .catch(err => console.log(err))
