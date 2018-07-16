@@ -3,6 +3,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var matchSchema = new Schema({
+  founderId:{
+    type: Schema.ObjectId,
+    required: true,
+    max: 500,
+  },
   firstClubId:{
     type: Schema.ObjectId,
     required: true,

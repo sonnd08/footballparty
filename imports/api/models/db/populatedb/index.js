@@ -345,8 +345,10 @@ function createMatchs(cb) {
 
   for (let i = 0; i < MAX_MATCHS; i++) {
     execArray.push(function (callback) {
+      const firstClub = faker.random.arrayElement(_clubs);
       const match = {
-        firstClubId: faker.random.arrayElement(_clubs)._id,
+        founderId: firstClub.founderId,
+        firstClubId: firstClub._id,
         secondClubId: faker.random.arrayElement(_clubs)._id,
         groundId: faker.random.arrayElement(_grounds)._id,
         status: faker.random.arrayElement(['opening', 'ended', 'private']),

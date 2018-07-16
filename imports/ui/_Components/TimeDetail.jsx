@@ -5,8 +5,8 @@ export default class TimeDetail extends Component {
   render() {
     let dateBegin = new Date(this.props.dateBegin)
     let dateEnd = new Date(this.props.dateEnd)
-    console.log('dateBegin', dateBegin);
-    console.log('dateBegin.getMonth()', dateBegin.getFullYear());
+    // console.log('dateBegin', dateBegin);
+    // console.log('dateBegin.getMonth()', dateBegin.getFullYear());
     return (
       <div className="timeDetail">
         <div className="dateContainer">
