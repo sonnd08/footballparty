@@ -34,6 +34,7 @@ class MatchsPage extends Component {
                     <div className="topContainer">
                       <AvatarAndName
                         clubId={match.firstClubId}
+                        groundId={match.groundId}
                         // img={club.avatar}
                         // name={club.name}
                         // rating={<Rating value={club.rating} />}
