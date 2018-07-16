@@ -9,6 +9,14 @@ class DatePicker extends Component {
     return somethingToMatch === this.props.currPickedDate? 'active' : '';
   }
 
+  // onClickDatePicker = (date)=>{
+  //   this.props.dispatch(setCurrPickedDate(date))
+
+  // }
+  componentDidMount(){
+    this.props.dispatch(setCurrPickedDate(moment().format('YYYY-MM-DD')))
+  }
+
   render() {
     var settings = {
       arrows: true,
@@ -56,8 +64,8 @@ class DatePicker extends Component {
       datesBeforeBtn.push(
         <button
           key={thisDate}
-          className={`button passedDate ${this.isActive(thisDate.format('YYYY-DD-MM'))}`}
-          onClick={() => this.props.dispatch(setCurrPickedDate(thisDate.format('YYYY-DD-MM')))}
+          className={`button passedDate ${this.isActive(thisDate.format('YYYY-MM-DD'))}`}
+          onClick={() => this.props.dispatch(setCurrPickedDate(thisDate.format('YYYY-MM-DD')))}
         >
           {thisDate.get('date')}
         </button>)
@@ -67,8 +75,8 @@ class DatePicker extends Component {
       datesAfterBtn.push(
         <button
           key={thisDate}
-          className={`button commingDate ${this.isActive(thisDate.format('YYYY-DD-MM'))}`}
-          onClick={() => this.props.dispatch(setCurrPickedDate(thisDate.format('YYYY-DD-MM')))}
+          className={`button commingDate ${this.isActive(thisDate.format('YYYY-MM-DD'))}`}
+          onClick={() => this.props.dispatch(setCurrPickedDate(thisDate.format('YYYY-MM-DD')))}
         >
           {thisDate.get('date')}
         </button>)
@@ -83,8 +91,8 @@ class DatePicker extends Component {
               <Slider {...settings}>
                 {datesBeforeBtn.map(btn => btn)}
                 <button
-                  className={`button currDate ${this.isActive(today.format('YYYY-DD-MM'))}`}
-                  onClick={() => this.props.dispatch(setCurrPickedDate(today.format('YYYY-DD-MM')))}
+                  className={`button currDate ${this.isActive(today.format('YYYY-MM-DD'))}`}
+                  onClick={() => this.props.dispatch(setCurrPickedDate(today.format('YYYY-MM-DD')))}
                 >
                   {today.get('date')}
                 </button>
