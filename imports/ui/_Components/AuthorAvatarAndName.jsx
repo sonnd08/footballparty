@@ -4,8 +4,6 @@ import { Users } from '../../../lib/collections/users'
 class AuthorAvatarAndName extends Component {
   render() {
     let {user} = this.props
-    console.log('user');
-    console.log(user);
     return (
       <div className="authorAvatarAndNameContainer">
         <div className="author">
@@ -24,8 +22,8 @@ export default withTracker((props)=>{
   let usersSub = Meteor.subscribe('users').ready();
   let user = Users.findOne({_id: props.userId})
   let isReady = usersSub
-  console.log('userId');
-  console.log(props.userId);
+  // console.log('userId');
+  // console.log(props.userId);
 
   return {
     isReady,

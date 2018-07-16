@@ -7,7 +7,7 @@ class AvatarAndName extends Component {
 
     render() {
         let classes = `${this.props.classes || ''}`
-        let {isReady, clubId, img, club, } = this.props
+        let {isReady, clubId, img, club, name} = this.props
         if(!isReady) return (
             <span className={`avatarAndNameContainer ${classes}`}>
                 <div className="avatar mr-2">
