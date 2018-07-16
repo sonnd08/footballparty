@@ -10,11 +10,13 @@ const Ground = require('../groundsModel')
 const Comment = require('../commentsModel')
 const User = require('../usersModel')
 const Club = require('../clubsModel')
+const Match = require('../matchsModel')
 
 const MAX_GROUNDS = 100;
 const MAX_USERS = 150;
 const MAX_CLUBS = 15;
 const MAX_ADMIN_USERS = MAX_CLUBS;
+const MAX_MATCHS = 50;
 
 let imagesForStadiums = []
 let imagesForClubs = []
@@ -23,6 +25,7 @@ let _comments = []
 let _adminUsers = []
 let _users = []
 let _clubs = []
+let _matchs = []
 
 console.log('This script populates some data to your' +
   ' database. Specified database as argument - e.g.: populatedb mongodb://your_user' +
@@ -170,6 +173,20 @@ function clubCreater(obj, cb) {
     console.log('New club: ' + club);
     _clubs.push(club)
     cb(null, club);
+  });
+}
+
+function matchCreater(obj, cb) {
+  let match = new Match(obj);
+
+  match.save(function (err) {
+    if (err) {
+      cb(err, null);
+      return;
+    }
+    console.log('New match: ' + match);
+    _matchs.push(match)
+    cb(null, match);
   });
 }
 //CREATORS END
@@ -323,6 +340,27 @@ function createClubs(cb) {
   async.parallel(execArray, cb);
 }
 
+function createMatchs(cb) {
+  execArray = [];
+
+  for (let i = 0; i < MAX_MATCHS; i++) {
+    execArray.push(function (callback) {
+      const match = {
+        firstClubId: faker.random.arrayElement(_clubs)._id,
+        secondClubId: faker.random.arrayElement(_clubs)._id,
+        groundId: faker.random.arrayElement(_grounds)._id,
+        status: faker.random.arrayElement(['opening', 'ended', 'private']),
+        dateBegin: faker.random.arrayElement([faker.date.recent(),faker.date.future(0.5)]),
+        dateEnd: faker.random.arrayElement([faker.date.recent(),faker.date.future(0.5)]),
+        
+      }
+
+      matchCreater(match, callback);
+    });
+  }
+  async.parallel(execArray, cb);
+}
+
 // function addSomeUsersToCLubs(cb) {
 //   console.log('Number of clubs:', _clubs.length);
 //   let oldUserIterator = 0;
@@ -359,6 +397,7 @@ Promise.all([dropDatabasePromise, fetchStadiumImgsPromise, fetchClubImgsPromise]
       createClubs,
       createUsers,
       createComments,
+      createMatchs
       // addSomeUsersToCLubs
     ],
       // Optional callback

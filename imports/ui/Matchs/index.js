@@ -41,6 +41,7 @@ class Matchs extends Component {
                     </div>
                     <div className="matchFooter d-flex justify-content-between">
                       <AuthorAvatarAndName
+                        userId={club.founderId}
                         name={club.founderName}
                         img={club.founderAvatar}
                       />
