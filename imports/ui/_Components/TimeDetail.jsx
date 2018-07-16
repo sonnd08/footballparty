@@ -10,7 +10,7 @@ export default class TimeDetail extends Component {
     return (
       <div className="timeDetail">
         <div className="dateContainer">
-          <p className="day">{dateBegin.getDate() || '10'}</p>
+          <p className="day">{moment(dateBegin).format('DD') || '10'}</p>
           <div className="date">
             <p className="dayOfWeek">
               {dateBegin ? moment(dateBegin).format('dddd') : 'Monday'}
