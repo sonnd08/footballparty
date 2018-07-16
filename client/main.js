@@ -11,7 +11,7 @@ import GroundDetail from '../imports/ui/GroundDetail';
 import Matchs from '../imports/ui/Matchs';
 
 Meteor.startup(() => {
-    console.log('rendering');
+    // console.log('rendering');
 
     render(
         <Router history={browserHistory}>

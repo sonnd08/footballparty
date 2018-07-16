@@ -10,11 +10,11 @@ import AuthorAvatarAndName from '../_Components/AuthorAvatarAndName'
 import NumOfPlayers from '../_Components/NumOfPlayers'
 import { withTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../../lib/collections/clubs'
-import { Users } from '../../../lib/collections/users'
+import { Matchs } from '../../../lib/collections/matchs'
 
-class Matchs extends Component {
+class MatchsPage extends Component {
   render() {
-    let { isReady, clubs } = this.props;
+    let { isReady, clubs, matchs} = this.props;
     if (!isReady) return <Loading />
     // console.log('in side of Matchs');
     // console.log(clubs);
@@ -28,25 +28,26 @@ class Matchs extends Component {
           <div className="matchs mt-5">
             <div className="row">
 
-              {clubs.map((club, i) => {
+              {matchs.map((match, i) => {
                 return <div key={i} className="col-md-6">
                   <div className="matchContainer">
                     <div className="topContainer">
                       <AvatarAndName
-                        img={club.avatar}
-                        name={club.name}
-                        rating={<Rating value={club.rating} />}
-                        additional2={<TimeDetail />}
+                        clubId={match.firstClubId}
+                        // img={club.avatar}
+                        // name={club.name}
+                        // rating={<Rating value={club.rating} />}
+                        additional2={<TimeDetail dateBegin={match.dateBegin} dateEnd={match.dateEnd}/>}
                       />
                     </div>
                     <div className="matchFooter d-flex justify-content-between">
                       <AuthorAvatarAndName
-                        userId={club.founderId}
-                        name={club.founderName}
-                        img={club.founderAvatar}
+                        // userId={club.founderId}
+                        // name={club.founderName}
+                        // img={club.founderAvatar}
                       />
 
-                      <NumOfPlayers clubId={club._id} />
+                      <NumOfPlayers clubId={match.firstClubId} />
 
                       <div className="joinBtnContainer ml-auto">
                         <button className="joinBtn">JOIN</button>
@@ -70,14 +71,17 @@ class Matchs extends Component {
 
 export default withTracker(() => {
   let clubsSub = Meteor.subscribe('clubs').ready();
+  let matchsSub = Meteor.subscribe('matchs').ready();
   let clubs = Clubs.find({}).fetch();
-  let isReady = clubsSub;
+  let matchs = Matchs.find({}).fetch();
+  let isReady = clubsSub && matchsSub;
 
   // console.log('clubsSub:', clubsSub);
   // console.log('clubs:', clubs);
   // console.log('isReady: ', isReady);
   return {
     clubs,
+    matchs,
     isReady
   };
-})(Matchs)
+})(MatchsPage)
