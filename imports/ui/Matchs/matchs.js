@@ -6,6 +6,7 @@ import AuthorAvatarAndName from '../_Components/AuthorAvatarAndName'
 import NumOfPlayers from '../_Components/NumOfPlayers'
 import { withTracker } from 'meteor/react-meteor-data';
 import { Matchs } from '../../../lib/collections/matchs'
+import { Clubs } from '../../../lib/collections/clubs'
 import { connect } from 'react-redux'
 
 class MatchsContainer extends Component {
@@ -55,19 +56,21 @@ export default connect(state => {
     keyword: state.filters.Matchs.keyword
   }
 })(withTracker((props) => {
-  let matchsSub = Meteor.subscribe('matchs', props.keyword).ready();
-  // let clubsSub = Meteor.subscribe('matchs').ready();
+  let matchsSub = Meteor.subscribe('matchs').ready();
+  let clubsSub = Meteor.subscribe('clubs').ready();
+  
+  const matchedClubs = Clubs.find({name: new RegExp(`.*${props.keyword}.*`,'i')}).map(club=>club._id);
   let queryDate = new Date(props.dateToQuery);
   queryDate = queryDate.getTime() + queryDate.getTimezoneOffset() * 60 * 1000;
-  // console.log('date1: ', new Date(moment(queryDate).toISOString()));
-  // console.log('date2: ', new Date(moment(queryDate.getTime()+24*60*60*1000-1)).toISOString());
+
   let matchs = Matchs.find({
     dateBegin: {
       $gte: new Date(queryDate),
       $lt: new Date(queryDate + 24 * 60 * 60 * 1000 - 1)
-    }
+    },
+    firstClubId:{$in:matchedClubs}
   }).fetch();
-  let isReady = matchsSub;
+  let isReady = matchsSub && clubsSub;
 
   return {
     matchs,
