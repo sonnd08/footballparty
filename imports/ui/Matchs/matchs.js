@@ -7,6 +7,7 @@ import NumOfPlayers from '../_Components/NumOfPlayers'
 import { withTracker } from 'meteor/react-meteor-data';
 import { Matchs } from '../../../lib/collections/matchs'
 import { Clubs } from '../../../lib/collections/clubs'
+import { Grounds } from '../../../lib/collections/grounds'
 import { connect } from 'react-redux'
 
 class MatchsContainer extends Component {
@@ -50,16 +51,21 @@ class MatchsContainer extends Component {
 }
 
 export default connect(state => {
-
   return {
     dateToQuery: state.datePicker.currPickedDate,
-    keyword: state.filters.Matchs.keyword
+    keyword: state.filters.Matchs.keyword,
+    priceQuery: state.filters.Matchs.priceQuery,
   }
 })(withTracker((props) => {
   let matchsSub = Meteor.subscribe('matchs').ready();
   let clubsSub = Meteor.subscribe('clubs').ready();
+  let groundsSub = Meteor.subscribe('grounds').ready();
   
   const matchedClubs = Clubs.find({name: new RegExp(`.*${props.keyword}.*`,'i')}).map(club=>club._id);
+  const matchedGrounds = Grounds.find({price: props.priceQuery}).map(ground=>ground._id);
+
+
+
   let queryDate = new Date(props.dateToQuery);
   queryDate = queryDate.getTime() + queryDate.getTimezoneOffset() * 60 * 1000;
 
@@ -68,9 +74,10 @@ export default connect(state => {
       $gte: new Date(queryDate),
       $lt: new Date(queryDate + 24 * 60 * 60 * 1000 - 1)
     },
-    firstClubId:{$in:matchedClubs}
+    firstClubId:{$in:matchedClubs},
+    groundId:{$in:matchedGrounds},
   }).fetch();
-  let isReady = matchsSub && clubsSub;
+  let isReady = matchsSub && clubsSub && groundsSub;
 
   return {
     matchs,

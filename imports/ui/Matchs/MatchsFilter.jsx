@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
 import SearchBar from '../_Components/SearchBar';
 import { connect } from 'react-redux'
-import { setMatchsFilterKeyword } from '../_Redux/Actions/filters'
+import { setMatchsFilterKeyword, setMatchsFilterPrice} from '../_Redux/Actions/filters'
 import _ from 'lodash'
 class MatchsFilter extends Component {
 
   onSearchType = _.debounce((input)=>{
     this.props.dispatch(setMatchsFilterKeyword(input));
   }, 300)
+
+  onSortByPrice = (e)=>{
+    var dataset = e.target.options[e.target.selectedIndex].dataset;
+    this.props.dispatch(setMatchsFilterPrice(dataset.price1, dataset.price2));
+  }
   render() {
     let {keyword} = this.props
     return (
@@ -23,10 +28,11 @@ class MatchsFilter extends Component {
               <option value="Farest">Farest</option>
             </select>
 
-            <select name="price" id="">
-              <option value="Nearest">&#60; $10</option>
-              <option value="Farest">$10 ~ $30</option>
-              <option value="Farest">$10 ~ $30</option>
+            <select name="price" id="" onChange={this.onSortByPrice}>
+              <option value="Nearest" data-price1={null} data-price2={null}>All price</option>
+              <option value="Nearest" data-price1={null} data-price2={20}>&lt; $20</option>
+              <option value="Farest" data-price1={20} data-price2={50}>$20 ~ $50</option>
+              <option value="Farest" data-price1={50} data-price2={null}>&gt; $50</option>
             </select>
           </div>
         </div>
