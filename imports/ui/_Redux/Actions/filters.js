@@ -18,7 +18,7 @@ export function setMatchsFilterTime(order){
     payload:{order}
   }
 }
-export function setMatchsFilterPrice(price1, price2){
+export function setMatchsFilterPrice(price1, price2, priceOptionIndex){
   let priceQuery;
   price1*=1;
   price2*=1;
@@ -29,6 +29,6 @@ export function setMatchsFilterPrice(price1, price2){
 
   return{
     type:"setMatchsFilterPrice",
-    payload:{priceQuery,price1, price2}
+    payload:{priceQuery, priceOptionIndex}
   }
 }

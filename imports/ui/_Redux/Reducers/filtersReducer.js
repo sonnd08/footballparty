@@ -3,8 +3,7 @@ export default function reducer(state = {
   Matchs: { 
     keyword: '',
     priceQuery: {$gte: 0},
-    price1: null,
-    price2: null,
+    priceOptionIndex:"0",
     rating:{
       order:-1
     },
@@ -50,8 +49,7 @@ export default function reducer(state = {
           ...state.Matchs,
           ...{
             priceQuery: action.payload.priceQuery,
-            price1: action.payload.price1,
-            price2: action.payload.price2,
+            priceOptionIndex: action.payload.priceOptionIndex,
           }
         },
       }
