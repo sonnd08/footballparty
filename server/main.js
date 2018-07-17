@@ -24,11 +24,14 @@ Meteor.publish('clubs', function () {
 });
 
 
-Meteor.publish('matchs', function (keyword) {
-  check(keyword, String);
-  const matchedClubs = Clubs.find({name: new RegExp(`.*${keyword}.*`,'i')}).map(club=>club._id);
-  return Matchs.find({firstClubId:{$in:matchedClubs}});
+Meteor.publish('matchs', function () {
+  return Matchs.find();
 });
+// Meteor.publish('matchs', function (keyword) {
+//   check(keyword, String);
+//   const matchedClubs = Clubs.find({name: new RegExp(`.*${keyword}.*`,'i')}).map(club=>club._id);
+//   return Matchs.find({firstClubId:{$in:matchedClubs}});
+// });
 
 // Meteor.startup(() => {
 //   // code to run on server at startup

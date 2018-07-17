@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import SearchBar from '../_Components/SearchBar';
 import { connect } from 'react-redux'
 import { setMatchsFilterKeyword } from '../_Redux/Actions/filters'
-
+import _ from 'lodash'
 class MatchsFilter extends Component {
 
-  onSearchType = (input)=>{
+  onSearchType = _.debounce((input)=>{
     this.props.dispatch(setMatchsFilterKeyword(input));
-  }
+  }, 300)
   render() {
     let {keyword} = this.props
     return (
@@ -34,7 +34,7 @@ class MatchsFilter extends Component {
         <div className="col-lg-6 ">
           <div className="row align-items-center">
             <div className="col-7">
-              <SearchBar classes="style2" onInputChange={this.onSearchType} value={keyword}/>
+              <SearchBar classes="style2" onInputChange={this.onSearchType} />
             </div>
             <div className="col-5 d-flex justify-content-end">
               <button className="quickMatchBtn"><i className="icon-quickMatchIcon"></i>QUICK MATCH</button>
