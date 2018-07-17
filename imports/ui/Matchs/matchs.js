@@ -55,28 +55,32 @@ export default connect(state => {
     dateToQuery: state.datePicker.currPickedDate,
     keyword: state.filters.Matchs.keyword,
     priceQuery: state.filters.Matchs.priceQuery,
+    timeOrder: state.filters.Matchs.time.order,
   }
 })(withTracker((props) => {
   let matchsSub = Meteor.subscribe('matchs').ready();
   let clubsSub = Meteor.subscribe('clubs').ready();
   let groundsSub = Meteor.subscribe('grounds').ready();
-  
-  const matchedClubs = Clubs.find({name: new RegExp(`.*${props.keyword}.*`,'i')}).map(club=>club._id);
-  const matchedGrounds = Grounds.find({price: props.priceQuery}).map(ground=>ground._id);
+
+  const matchedClubs = Clubs.find({ name: new RegExp(`.*${props.keyword}.*`, 'i') }).map(club => club._id);
+  const matchedGrounds = Grounds.find({ price: props.priceQuery }).map(ground => ground._id);
 
 
 
   let queryDate = new Date(props.dateToQuery);
   queryDate = queryDate.getTime() + queryDate.getTimezoneOffset() * 60 * 1000;
 
-  let matchs = Matchs.find({
-    dateBegin: {
-      $gte: new Date(queryDate),
-      $lt: new Date(queryDate + 24 * 60 * 60 * 1000 - 1)
+  let matchs = Matchs.find(
+    {
+      dateBegin: {
+        $gte: new Date(queryDate),
+        $lt: new Date(queryDate + 24 * 60 * 60 * 1000 - 1)
+      },
+      firstClubId: { $in: matchedClubs },
+      groundId: { $in: matchedGrounds },
     },
-    firstClubId:{$in:matchedClubs},
-    groundId:{$in:matchedGrounds},
-  }).fetch();
+    { sort: { dateBegin: props.timeOrder } }
+  ).fetch();
   let isReady = matchsSub && clubsSub && groundsSub;
 
   return {

@@ -4,6 +4,20 @@ export function setMatchsFilterKeyword(keyword){
     payload:{keyword}
   }
 }
+export function setMatchsFilterRating(order){
+  return{
+    type:"setMatchsFilterRating",
+    payload:{order}
+  }
+}
+
+export function setMatchsFilterTime(order){
+  order*=1;
+  return{
+    type:"setMatchsFilterTime",
+    payload:{order}
+  }
+}
 export function setMatchsFilterPrice(price1, price2){
   let priceQuery;
   price1*=1;

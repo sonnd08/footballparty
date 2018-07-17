@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from '../_Components/SearchBar';
 import { connect } from 'react-redux'
-import { setMatchsFilterKeyword, setMatchsFilterPrice} from '../_Redux/Actions/filters'
+import { setMatchsFilterKeyword, setMatchsFilterPrice, setMatchsFilterTime} from '../_Redux/Actions/filters'
 import _ from 'lodash'
 class MatchsFilter extends Component {
 
@@ -13,6 +13,12 @@ class MatchsFilter extends Component {
     var dataset = e.target.options[e.target.selectedIndex].dataset;
     this.props.dispatch(setMatchsFilterPrice(dataset.price1, dataset.price2));
   }
+  // onSortByRating = (e)=>{
+  //   this.props.dispatch(setMatchsFilterRating(e.target.value));
+  // }
+  onSortByTime = (e)=>{
+    this.props.dispatch(setMatchsFilterTime(e.target.value));
+  }
   render() {
     let {keyword} = this.props
     return (
@@ -23,9 +29,10 @@ class MatchsFilter extends Component {
 
         <div className="col-lg-4">
           <div className="selectOptions">
-            <select name="distance" id="">
-              <option value="Nearest">Nearest</option>
-              <option value="Farest">Farest</option>
+            <select name="time" id="" onChange={this.onSortByTime}>
+              {/* <option value="Time">Time</option> */}
+              <option value="-1">Time: Desc</option>
+              <option value="1">Time: Asc</option>
             </select>
 
             <select name="price" id="" onChange={this.onSortByPrice}>
