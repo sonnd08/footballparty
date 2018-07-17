@@ -79,10 +79,14 @@ export default connect(state => {
   }
 })(withTracker((props) => {
   let matchsSub = Meteor.subscribe('matchs').ready();
+  let queryDate = new Date(props.dateToQuery);
+  queryDate = queryDate.getTime() + queryDate.getTimezoneOffset()*60*1000;
+  // console.log('date1: ', new Date(moment(queryDate).toISOString()));
+  // console.log('date2: ', new Date(moment(queryDate.getTime()+24*60*60*1000-1)).toISOString());
   let matchs = Matchs.find({
     dateBegin: { 
-      $gte:   new Date(moment(new Date(props.dateToQuery)).toISOString()), 
-      $lt:  new Date(moment(new Date(new Date(props.dateToQuery).getTime()+24*60*60*1000-1)).toISOString())
+      $gte:   new Date(queryDate), 
+      $lt:  new Date(queryDate+24*60*60*1000-1)
     }
   }).fetch();
   let isReady = matchsSub;

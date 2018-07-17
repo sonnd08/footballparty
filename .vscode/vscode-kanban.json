@@ -4,6 +4,15 @@
       "assignedTo": {
         "name": "Son Nguyen Dinh"
       },
+      "creation_time": "2018-07-09T10:50:04.354Z",
+      "id": "20180709105004_14647823_0d3e6521406b126a0d412efc5e773de0",
+      "references": [],
+      "title": "avatar popup"
+    },
+    {
+      "assignedTo": {
+        "name": "Son Nguyen Dinh"
+      },
       "creation_time": "2018-07-09T10:49:49.141Z",
       "id": "20180709104949_483998236_51c2697d18efb36b4823e47611c28676",
       "references": [],
@@ -17,15 +26,6 @@
       "id": "20180709104933_552222073_2a0732ea55274e202a574e552511a31b",
       "references": [],
       "title": "Slider for datepicker"
-    },
-    {
-      "assignedTo": {
-        "name": "Son Nguyen Dinh"
-      },
-      "creation_time": "2018-07-09T10:50:04.354Z",
-      "id": "20180709105004_14647823_0d3e6521406b126a0d412efc5e773de0",
-      "references": [],
-      "title": "avatar popup"
     }
   ],
   "in-progress": [],
@@ -39,6 +39,15 @@
       "id": "20180709033029_157029927_d82ff57e539164c6e03efea06f654f01",
       "references": [],
       "title": "@decorator in es5"
+    },
+    {
+      "assignedTo": {
+        "name": "Son Nguyen Dinh"
+      },
+      "creation_time": "2018-07-17T02:29:31.662Z",
+      "id": "20180717022931_448759080_f729e3c1af5fdd30b4c95c12fec7bc32",
+      "references": [],
+      "title": "Wrong date convert, matchs"
     }
   ]
 }
