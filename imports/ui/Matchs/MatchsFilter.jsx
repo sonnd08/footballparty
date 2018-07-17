@@ -5,9 +5,9 @@ import { setMatchsFilterKeyword, setMatchsFilterPrice} from '../_Redux/Actions/f
 import _ from 'lodash'
 class MatchsFilter extends Component {
 
-  onSearchType = _.debounce((input)=>{
+  onSearchType = (input)=>{
     this.props.dispatch(setMatchsFilterKeyword(input));
-  }, 300)
+  }
 
   onSortByPrice = (e)=>{
     var dataset = e.target.options[e.target.selectedIndex].dataset;
@@ -40,7 +40,7 @@ class MatchsFilter extends Component {
         <div className="col-lg-6 ">
           <div className="row align-items-center">
             <div className="col-7">
-              <SearchBar classes="style2" onInputChange={this.onSearchType} />
+              <SearchBar classes="style2" onInputChange={this.onSearchType} value={keyword} />
             </div>
             <div className="col-5 d-flex justify-content-end">
               <button className="quickMatchBtn"><i className="icon-quickMatchIcon"></i>QUICK MATCH</button>

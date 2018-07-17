@@ -6,15 +6,16 @@ import { setCurrPickedDate } from '../_Redux/Actions/datePicker'
 
 class DatePicker extends Component {
   isActive = (somethingToMatch) => {
-    return somethingToMatch === this.props.currPickedDate? 'active' : '';
+    return somethingToMatch === this.props.currPickedDate ? 'active' : '';
   }
 
   // onClickDatePicker = (date)=>{
   //   this.props.dispatch(setCurrPickedDate(date))
 
   // }
-  componentDidMount(){
-    this.props.dispatch(setCurrPickedDate(moment().format('YYYY-MM-DD')))
+  componentDidMount() {
+    if (this.props.currPickedDate === 'none')
+      this.props.dispatch(setCurrPickedDate(moment().format('YYYY-MM-DD')))
   }
 
   render() {
