@@ -1,14 +1,14 @@
 
 export default function reducer(state={
-  currPickedDate: "none",
+  Matchs: {keyword:''},
 }, action){
-  // console.log('setCurrPickedDate');
-  // console.log(action);
+  console.log('filter action');
+  console.log(action);
   switch(action.type){
-    case "setCurrPickedDate":{
+    case "setMatchsFilterKeyword":{
       return {
         ...state, 
-        currPickedDate:action.payload.date,
+        Matchs:{keyword: action.payload.keyword},
       }
     }
     default:{
