@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Users } from '../../../lib/collections/users'
+import { Users } from '../../../lib/collections/user_profiles'
 class AuthorAvatarAndName extends Component {
   render() {
     let {user} = this.props
@@ -21,7 +21,7 @@ class AuthorAvatarAndName extends Component {
 
 export default withTracker((props)=>{
 
-  let usersSub = Meteor.subscribe('users').ready();
+  let usersSub = Meteor.subscribe('user_profiles').ready();
   let user = Users.findOne({_id: props.userId})
   let isReady = usersSub
   // console.log('userId');

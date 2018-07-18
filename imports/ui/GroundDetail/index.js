@@ -11,9 +11,8 @@ import { Link, withRouter} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {withTracker} from 'meteor/react-meteor-data'
 import {Grounds} from '../../../lib/collections/grounds'
-import {Users} from '../../../lib/collections/users'
+import {Users} from '../../../lib/collections/user_profiles'
 import {Comments} from '../../../lib/collections/comments'
-import { clearScreenDown } from 'readline';
 
 class GroundDetailBody extends Component {
   toggleBookingModal = ()=>{
@@ -117,18 +116,22 @@ class GroundDetailBody extends Component {
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
     // console.log('GroundDetail_withTracker start to subscription');
-    let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('users') && Meteor.subscribe('comments')
+    let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('user_profiles') && Meteor.subscribe('comments')
     let founderDetail;
     let cmts;
     const groundDetail = Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)});
     if(groundDetail){
+      console.log('if(groundDetail){');
+    
       founderDetail = Users.findOne({_id: groundDetail.founderId});
+      console.log('groundDetail:',groundDetail);
+      console.log('founderDetail:',founderDetail);
       cmts = Comments.find({groundId: groundDetail._id}).fetch();
     }
     
     isReady = isReady && groundDetail && founderDetail && cmts
     
-    // console.log('finished subscription');
+    console.log('finished subscription:',founderDetail);
     return {
       groundDetail,
       founderDetail,

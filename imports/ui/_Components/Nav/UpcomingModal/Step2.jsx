@@ -4,10 +4,12 @@ import StadiumNameAndAddress from '../../StadiumNameAndAddress'
 import Rating from '../../Rating'
 import AuthorAvatarAndName from '../../AuthorAvatarAndName'
 import NumOfPlayers from '../../NumOfPlayers'
+import { withTracker } from 'meteor/react-meteor-data';
+import { Users } from '../../../../../lib/collections/user_profiles'
 
-export default class Step2 extends Component {
+class Step2 extends Component {
     render() {
-      let {matchDetail} = this.props;
+      let {matchDetail, currUserProfile} = this.props;
         return (
             <div className="step1Container step2Container upcomingMoldalStep2">
                 <div className="row ">
@@ -53,7 +55,10 @@ export default class Step2 extends Component {
                         <p className="teamName">Bayern Muchen</p>
                         <Rating value="3.5"/>
                         <div className="teamFooter">
-                          <AuthorAvatarAndName/>
+                          <AuthorAvatarAndName
+                            name={currUserProfile?currUserProfile.name:undefined}
+                            img={currUserProfile?currUserProfile.avatar:undefined}
+                          />
                           <NumOfPlayers/>
                         </div>
 
@@ -107,3 +112,11 @@ export default class Step2 extends Component {
         );
     }
 }
+
+
+export default withTracker((props)=>{
+  currUserProfile = Users.findOne({meteorUserId: Meteor.userId()})
+  return{
+    currUserProfile
+  }
+})(Step2)

@@ -7,28 +7,31 @@ import {
   Link,
   withRouter
 } from 'react-router-dom'
-import {connect} from 'react-redux'
-import {toggleUpcomingModal} from '../../_Redux/Actions/toggleModal'
+import { connect } from 'react-redux'
+import { toggleUpcomingModal } from '../../_Redux/Actions/toggleModal'
+
+import AccountsUIWrapper from '../AccountsUIWrapper';
+
 class Nav extends Component {
 
-  showUpcomingModal = ()=>{
+  showUpcomingModal = () => {
     this.props.dispatch(toggleUpcomingModal())
   }
   render() {
-    
-    let {upcomingModalDisplay} = this.props;
+
+    let { upcomingModalDisplay } = this.props;
     return (
       <div>
-        <UpcomingModal display={upcomingModalDisplay}/>
+        <UpcomingModal display={upcomingModalDisplay} />
         <nav className="navBar">
           <div className="container">
             <div className="content">
 
               <Link to="/">
-                <Logo/>
+                <Logo />
               </Link>
               <div className="centerBlock">
-                <SearchBar/>
+                <SearchBar />
                 <ul>
                   <li>
                     <Link to="/Matchs">find match</Link>
@@ -41,7 +44,11 @@ class Nav extends Component {
                 </ul>
               </div>
 
-              <NavAvatar/>
+              <div className='accountsUIWrapperContainer'>
+                {/* <NavAvatar /> */}
+                <AccountsUIWrapper />
+              </div>
+
             </div>
           </div>
         </nav>
@@ -50,7 +57,7 @@ class Nav extends Component {
   }
 }
 
-function mapStatetoProps(store){
+function mapStatetoProps(store) {
   return {
     upcomingModalDisplay: store.toggleModals.upcomingModal.display
   }

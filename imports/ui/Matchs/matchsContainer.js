@@ -7,7 +7,7 @@ import NumOfPlayers from '../_Components/NumOfPlayers'
 import { withTracker } from 'meteor/react-meteor-data';
 import { Matchs } from '../../../lib/collections/matchs'
 import { Clubs } from '../../../lib/collections/clubs'
-import { Users } from '../../../lib/collections/users'
+import { Users } from '../../../lib/collections/user_profiles'
 import { Grounds } from '../../../lib/collections/grounds'
 import { connect } from 'react-redux'
 import {toggleUpcomingModal} from '../_Redux/Actions/toggleModal'

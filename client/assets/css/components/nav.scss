@@ -10,8 +10,7 @@
     align-items: center;
     padding-top: 20px;
     padding-bottom: 20px;
-
-    a{
+    a {
       line-height: 1;
     }
   }
@@ -68,23 +67,36 @@
       left: 45px;
       top: 15px;
     }
-    .avatarDropdown{
+    .avatarDropdown {
       // display: none;
       z-index: 100;
       width: 150px;
-      padding: 1em; 
+      padding: 1em;
       text-align: right;
       background: #c9c9c9;
       color: rgb(68, 68, 68);
       position: absolute;
       border-radius: 3px;
-      top:45px;
+      top: 45px;
       right: -20px;
-      p{
+      p {
         padding: 0.5em;
-        &:hover{
+        &:hover {
           background: #adadad;
         }
+      }
+    }
+  }
+  .accountsUIWrapperContainer {
+    .login-link-and-dropdown-list {
+
+      .login-link-text {
+        color: white;
+        text-decoration: none!important;
+      }
+      #login-dropdown-list {
+        left: auto;
+        right: -1px;
       }
     }
   }

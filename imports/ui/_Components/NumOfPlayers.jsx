@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { withTracker } from 'meteor/react-meteor-data';
 import { Clubs } from '../../../lib/collections/clubs'
-import { Users } from '../../../lib/collections/users'
+import { Users } from '../../../lib/collections/user_profiles'
 
  class NumOfPlayers extends Component {
   render() {
@@ -17,7 +17,7 @@ import { Users } from '../../../lib/collections/users'
 }
 
 export default withTracker((props)=>{
-  let isReady = Meteor.subscribe('users').ready();
+  let isReady = Meteor.subscribe('user_profiles').ready();
   let usersCount = Users.find({clubs:props.clubId}).count();
   return{
     props,

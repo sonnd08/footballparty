@@ -45,5 +45,5 @@ userSchema.statics = {
   }
 }
 
-const usersModel = mongoose.model('users', userSchema);
+const usersModel = mongoose.model('user_profiles', userSchema);
 module.exports = usersModel;

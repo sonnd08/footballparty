@@ -6,7 +6,7 @@ var clubSchema = new Schema({
   founderId:{
     type: Schema.ObjectId,
     required:true,
-    ref: 'users'
+    ref: 'user_profiles'
   },
   founderName:{
     type:String,
