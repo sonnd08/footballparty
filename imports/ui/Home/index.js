@@ -4,39 +4,30 @@ import Ground from './Item'
 import FilterBar from './FilterBar'
 import Loading from '../_Components/Loading';
 // import UpcomingModal from './UpcomingModal'
-import {connect} from 'react-redux'
-import {Grounds} from '../../../lib/collections/grounds'
-
+import { connect } from 'react-redux'
+import GroundsContainer from './groundsContainer'
 import { withTracker } from 'meteor/react-meteor-data';
 
 class Body extends Component {
   render() {
     return (
-        <div className="MainBody container">
-            <FilterBar/>
-            <div className="row content">
-            {this.props.grounds.map((ground) => (
-            <Ground key={ground._id} info={ground} />))}
-            </div>
-
-            <Loading/>
+      <div className="MainBody container">
+        <FilterBar/>
+        <div className="row content">
+          <GroundsContainer />
         </div>
+
+        <Loading />
+      </div>
     );
   }
 }
 
-function mapStatetoProps(store){
+function mapStatetoProps(state) {
   return {
-    upcomingModalDisplay: store.toggleModals.upcomingModalDisplay
+    upcomingModalDisplay: state.toggleModals.upcomingModalDisplay,
+    priceQuery: state.filters.Grounds.price.priceQuery,
   }
 };
-export default withTracker(() => {
-  // console.log('Grounds.find({}).fetch()');
-  // console.log(Grounds.find({}).fetch());
-
-  Meteor.subscribe('grounds');
-  return {
-    grounds: Grounds.find({}).fetch(),
-  };
-})(connect(mapStatetoProps)(Body));
+export default connect(mapStatetoProps)(Body);
 // export default connect(mapStatetoProps)(Body);
