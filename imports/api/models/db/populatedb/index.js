@@ -14,9 +14,9 @@ const Match = require('../matchsModel')
 
 const MAX_GROUNDS = 100;
 const MAX_USERS = 150;
-const MAX_CLUBS = 15;
+const MAX_CLUBS = 30;
 const MAX_ADMIN_USERS = MAX_CLUBS;
-const MAX_MATCHS = 50;
+const MAX_MATCHS = 80;
 
 let imagesForStadiums = []
 let imagesForClubs = []
@@ -352,8 +352,8 @@ function createMatchs(cb) {
         secondClubId: faker.random.arrayElement(_clubs)._id,
         groundId: faker.random.arrayElement(_grounds)._id,
         status: faker.random.arrayElement(['opening', 'ended', 'private']),
-        dateBegin: faker.random.arrayElement([faker.date.recent(),faker.date.future(0.5)]),
-        dateEnd: faker.random.arrayElement([faker.date.recent(),faker.date.future(0.5)]),
+        dateBegin: faker.random.arrayElement([faker.date.past(1/365*5),faker.date.future(1/365*8)]),
+        dateEnd: faker.random.arrayElement([faker.date.past(1/365*5),faker.date.future(1/365*8)]),
         
       }
 
