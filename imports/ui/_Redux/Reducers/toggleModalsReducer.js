@@ -1,6 +1,14 @@
 
 export default function reducer(state={
-  upcomingModalDisplay: "none",
+  upcomingModal:{
+    display: "none",
+    matchDetail: {
+      matchOrigin: {},
+      firstClub:{},
+      firstClubPlayers:0,
+      ground:{},
+    },
+  },
   bookingModal:{
     display: "none",
     currStep: 1
@@ -9,8 +17,13 @@ export default function reducer(state={
   // console.log(action.type);
   switch(action.type){
     case "toggleUpcomingModal":{
-      let newValue = state.upcomingModalDisplay==="none"?"block":"none"
-      return {...state, upcomingModalDisplay:newValue}
+      let newValue = state.upcomingModal.display==="none"?"block":"none"
+      return {
+        ...state, 
+        upcomingModal:{
+          display:newValue,
+          matchDetail: {...state.upcomingModal.matchDetail,...action.payload.matchDetail}
+        }}
     }
     case "toggleBookingModal":{
       let newValue = state.bookingModal.display==="none"?"block":"none"

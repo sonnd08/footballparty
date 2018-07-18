@@ -21,7 +21,7 @@ class MatchsFilter extends Component {
   }
   render() {
     let {keyword} = this.props
-    console.log('this.props.priceOptionIndex', this.props.priceOptionIndex);
+    // console.log('this.props.priceOptionIndex', this.props.priceOptionIndex);
     return (
       <div className="row matchsFilterContainer filterContainer">
         <div className="col-lg-2">

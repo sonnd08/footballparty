@@ -6,11 +6,11 @@ import { Users } from '../../../lib/collections/users'
 
  class NumOfPlayers extends Component {
   render() {
-    let {value, isReady, users} = this.props;
+    let {value, isReady, usersCount} = this.props;
     if(!isReady) return ''
     return (
       <div className="numOfPlayersContainer">
-        <p className="numOfPlayers">{value || users.length || '8'}&nbsp;Players</p>
+        <p className="numOfPlayers">{value || usersCount || '8'}&nbsp;Players</p>
       </div>
     );
   }
@@ -18,10 +18,10 @@ import { Users } from '../../../lib/collections/users'
 
 export default withTracker((props)=>{
   let isReady = Meteor.subscribe('users').ready();
-  let users = Users.find({clubs:props.clubId}).fetch();
+  let usersCount = Users.find({clubs:props.clubId}).count();
   return{
     props,
     isReady,
-    users
+    usersCount
   }
 })(NumOfPlayers)

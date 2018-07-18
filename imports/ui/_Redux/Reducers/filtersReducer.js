@@ -20,8 +20,8 @@ export default function reducer(state = {
     rating: '0'
   }
 }, action) {
-  console.log('filter action');
-  console.log(action);
+  // console.log('filter action');
+  // console.log(action);
   switch (action.type) {
     case "setMatchsFilterKeyword": {
       return {

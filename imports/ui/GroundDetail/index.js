@@ -116,7 +116,7 @@ class GroundDetailBody extends Component {
 }
 export default withRouter(connect(store=>{return {}})(
   withTracker((props) => {
-    console.log('GroundDetail_withTracker start to subscription');
+    // console.log('GroundDetail_withTracker start to subscription');
     let isReady = Meteor.subscribe('grounds').ready() && Meteor.subscribe('users') && Meteor.subscribe('comments')
     let founderDetail;
     let cmts;
@@ -125,11 +125,10 @@ export default withRouter(connect(store=>{return {}})(
       founderDetail = Users.findOne({_id: groundDetail.founderId});
       cmts = Comments.find({groundId: groundDetail._id}).fetch();
     }
-    // console.log(cmts);
     
     isReady = isReady && groundDetail && founderDetail && cmts
     
-    console.log('finished subscription');
+    // console.log('finished subscription');
     return {
       groundDetail,
       founderDetail,

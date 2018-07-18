@@ -52,7 +52,7 @@ class Nav extends Component {
 
 function mapStatetoProps(store){
   return {
-    upcomingModalDisplay: store.toggleModals.upcomingModalDisplay
+    upcomingModalDisplay: store.toggleModals.upcomingModal.display
   }
 };
 export default connect(mapStatetoProps)(Nav)

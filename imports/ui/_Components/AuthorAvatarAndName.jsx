@@ -4,13 +4,15 @@ import { Users } from '../../../lib/collections/users'
 class AuthorAvatarAndName extends Component {
   render() {
     let {user} = this.props
+    // console.log('this.props.name: ', this.props.name);
+    // console.log('user: ', user?user.name:'Hao Nguyen');
     return (
       <div className="authorAvatarAndNameContainer">
         <div className="author">
           <div className="avatar">
-            <img src={this.props.img || user?user.avatar:"https://dummyimage.com/100x100/000000/ffffff"} alt="" />
+            <img src={user?user.avatar:this.props.img||"https://dummyimage.com/100x100/000000/ffffff"} alt="" />
           </div>
-          <p className="authorName">{this.props.name || user?user.name:'Hao Nguyen'}</p>
+          <p className="authorName">{user?user.name: this.props.name || 'Hao Nguyen'}</p>
         </div>
       </div>
     );

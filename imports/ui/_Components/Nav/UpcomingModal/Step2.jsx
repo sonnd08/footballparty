@@ -7,6 +7,7 @@ import NumOfPlayers from '../../NumOfPlayers'
 
 export default class Step2 extends Component {
     render() {
+      let {matchDetail} = this.props;
         return (
             <div className="step1Container step2Container upcomingMoldalStep2">
                 <div className="row ">
@@ -27,13 +28,16 @@ export default class Step2 extends Component {
                     <div className="col-md-5 col-sm-12">
                       <div className="teamContainer p-4">
                         <div className="teamAvatar">
-                          <img src="https://dummyimage.com/500x500/000000/ffffff" alt=""/>
+                          <img src={matchDetail.firstClub.avatar || "https://dummyimage.com/500x500/000000/ffffff"} alt=""/>
                         </div>
-                        <p className="teamName">Bayern Muchen</p>
-                        <Rating value="3.5"/>
+                        <p className="teamName">{matchDetail.firstClub.name}</p>
+                        <Rating value={matchDetail.firstClub.rating}/>
                         <div className="teamFooter">
-                          <AuthorAvatarAndName/>
-                          <NumOfPlayers/>
+                          <AuthorAvatarAndName
+                            name={matchDetail.firstClub.founderName}
+                            img={matchDetail.firstClub.founderAvatar}
+                            />
+                          <NumOfPlayers clubId={matchDetail.firstClub._id?new Mongo.Collection.ObjectID(matchDetail.firstClub._id._str):undefined}/>
                         </div>
 
                       </div>
@@ -65,13 +69,19 @@ export default class Step2 extends Component {
                             <div className="col-3">
                                 <img
                                     className="addressDisplay"
-                                    src="https://dummyimage.com/300x300/000000/ffffff"
+                                    src={matchDetail.ground.imgURL || "https://dummyimage.com/300x300/000000/ffffff"}
                                     alt=""/>
                             </div>
                             <div className="col-9">
-                                <StadiumNameAndAddress/>
-                                <TimeDetail/>
-                                <Rating value="3.5"/>
+                                <StadiumNameAndAddress
+                                  name = {matchDetail.ground.name}
+                                  address = {matchDetail.ground.address}
+                                />
+                                <TimeDetail
+                                  dateBegin={matchDetail.matchOrigin.dateBegin}
+                                  dateEnd={matchDetail.matchOrigin.dateEnd}
+                                />
+                                <Rating value={matchDetail.ground.rating}/>
                             </div>
                         </div>
                     </div>

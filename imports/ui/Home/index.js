@@ -25,7 +25,7 @@ class Body extends Component {
 
 function mapStatetoProps(state) {
   return {
-    upcomingModalDisplay: state.toggleModals.upcomingModalDisplay,
+    upcomingModalDisplay: state.toggleModals.upcomingModal.display,
     priceQuery: state.filters.Grounds.price.priceQuery,
   }
 };

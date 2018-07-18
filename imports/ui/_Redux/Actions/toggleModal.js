@@ -1,7 +1,7 @@
-export function toggleUpcomingModal(){
+export function toggleUpcomingModal(matchDetail){
   return{
     type:"toggleUpcomingModal",
-    payload:{}
+    payload:{matchDetail}
   }
 }
 

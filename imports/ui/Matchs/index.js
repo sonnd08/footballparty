@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import MatchsFilter from './MatchsFilter'
 import Loading from '../_Components/Loading';
 import DatePicker from '../_Components/DatePicker'
-import MatchsContainer from './matchs';
+import MatchsContainer from './matchsContainer';
 
 export default class MatchsPage extends Component {
   render() {

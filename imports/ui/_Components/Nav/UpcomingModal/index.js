@@ -19,7 +19,7 @@ class UpcomingModal extends Component {
                 <div className="row justify-content-center">
                     <div className="col-lg-8 mt-l-5 col-md-10 col-xs-12">
                         <div className="modal-content">
-                            <Step2/>
+                            <Step2 matchDetail={this.props.matchDetail}/>
                         </div>
                     </div>
                 </div>
@@ -28,6 +28,8 @@ class UpcomingModal extends Component {
         );
   }
 }
-export default connect(store=>{
-  return {}
+export default connect(state=>{
+  return {
+    matchDetail: state.toggleModals.upcomingModal.matchDetail,
+  }
 })(UpcomingModal)
