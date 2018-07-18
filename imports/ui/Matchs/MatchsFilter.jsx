@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import SearchBar from '../_Components/SearchBar';
 import { connect } from 'react-redux'
 import { setMatchsFilterKeyword, setMatchsFilterPrice, setMatchsFilterTime} from '../_Redux/Actions/filters'
-import _ from 'lodash'
+
+import {toggleUpcomingModal} from '../_Redux/Actions/toggleModal'
+
 class MatchsFilter extends Component {
+  onQuickMatchClicked = () =>{
+    this.props.dispatch(toggleUpcomingModal());
+  }
 
   onSearchType = (input)=>{
     this.props.dispatch(setMatchsFilterKeyword(input));
@@ -51,7 +56,7 @@ class MatchsFilter extends Component {
               <SearchBar classes="style2" onInputChange={this.onSearchType} value={keyword} />
             </div>
             <div className="col-5 d-flex justify-content-end">
-              <button className="quickMatchBtn"><i className="icon-quickMatchIcon"></i>QUICK MATCH</button>
+              <button className="quickMatchBtn" onClick={this.onQuickMatchClicked}><i className="icon-quickMatchIcon" ></i>QUICK MATCH</button>
             </div>
           </div>
         </div>
