@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
   email:{
     type: String,
-    unique: true,
+    // unique: true,
     required: true,
     max: 500,
   },
