@@ -28,25 +28,31 @@ class Nav extends Component {
           <div className="container">
             <div className="content">
 
-              <Link to="/">
+              <Link to="/" className="mr-3">
                 <Logo />
               </Link>
               <div className="centerBlock">
-                <SearchBar />
-                <ul>
-                  <li>
-                    <Link to="/Matchs">find match</Link>
-                  </li>
-                  <li>
-                    <Link to="/">grounds</Link>
-                  </li>
-                  <li>messages</li>
-                  <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
-                </ul>
+                <div className="row">
+                  <div className="col-lg-4 d-flex align-items-center">
+                    <SearchBar />
+                  </div>
+                  <div className="col-lg-8">
+                    <ul>
+                      <li>
+                        <Link to="/Matchs">find match</Link>
+                      </li>
+                      <li>
+                        <Link to="/">grounds</Link>
+                      </li>
+                      <li>messages</li>
+                      <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
 
               <div className='accountsUIWrapperContainer'>
-                <NavAvatar currUser={this.props.currUser}/>
+                <NavAvatar currUser={this.props.currUser} />
                 <AccountsUIWrapper />
               </div>
 
