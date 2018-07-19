@@ -11,6 +11,7 @@ import GroundDetail from '../imports/ui/GroundDetail';
 import Matchs from '../imports/ui/Matchs';
 import '../imports/startup/accounts-config.js';
 
+
 Meteor.startup(() => {
     // console.log('rendering');
 

@@ -11,6 +11,7 @@ import { connect } from 'react-redux'
 import { toggleUpcomingModal } from '../../_Redux/Actions/toggleModal'
 
 import AccountsUIWrapper from '../AccountsUIWrapper';
+import { withTracker } from 'meteor/react-meteor-data';
 
 class Nav extends Component {
 
@@ -45,7 +46,7 @@ class Nav extends Component {
               </div>
 
               <div className='accountsUIWrapperContainer'>
-                {/* <NavAvatar /> */}
+                <NavAvatar currUser={this.props.currUser}/>
                 <AccountsUIWrapper />
               </div>
 
@@ -62,4 +63,11 @@ function mapStatetoProps(store) {
     upcomingModalDisplay: store.toggleModals.upcomingModal.display
   }
 };
-export default connect(mapStatetoProps)(Nav)
+export default connect(mapStatetoProps)(
+  withTracker((props) => {
+    let currUser = Meteor.user();
+    return {
+      currUser
+    }
+  }
+  )(Nav))
