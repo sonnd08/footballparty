@@ -121,17 +121,12 @@ export default withRouter(connect(store=>{return {}})(
     let cmts;
     const groundDetail = Grounds.findOne({_id: new Mongo.ObjectID(props.match.params.groundID)});
     if(groundDetail){
-      console.log('if(groundDetail){');
     
       founderDetail = Users.findOne({_id: groundDetail.founderId});
-      console.log('groundDetail:',groundDetail);
-      console.log('founderDetail:',founderDetail);
       cmts = Comments.find({groundId: groundDetail._id}).fetch();
     }
     
     isReady = isReady && groundDetail && founderDetail && cmts
-    
-    console.log('finished subscription:',founderDetail);
     return {
       groundDetail,
       founderDetail,

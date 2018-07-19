@@ -6,10 +6,11 @@ import AuthorAvatarAndName from '../../AuthorAvatarAndName'
 import NumOfPlayers from '../../NumOfPlayers'
 import { withTracker } from 'meteor/react-meteor-data';
 import { Users } from '../../../../../lib/collections/user_profiles'
+import { Clubs } from '../../../../../lib/collections/clubs'
 
 class Step2 extends Component {
     render() {
-      let {matchDetail, currUserProfile} = this.props;
+      let {matchDetail, currUserProfile,clubOfUser} = this.props;
         return (
             <div className="step1Container step2Container upcomingMoldalStep2">
                 <div className="row ">
@@ -50,13 +51,13 @@ class Step2 extends Component {
                     <div className="col-md-5 col-sm-12">
                       <div className="teamContainer p-4">
                         <div className="teamAvatar">
-                          <img src="https://dummyimage.com/500x500/000000/ffffff" alt=""/>
+                          <img src={clubOfUser?clubOfUser.avatar:"https://dummyimage.com/500x500/000000/ffffff"} alt=""/>
                         </div>
-                        <p className="teamName">Bayern Muchen</p>
-                        <Rating value="3.5"/>
+                        <p className="teamName">{clubOfUser?clubOfUser.name:'Bayern Muchen'}</p>
+                        <Rating value={clubOfUser?clubOfUser.rating:"3.5"}/>
                         <div className="teamFooter">
                           <AuthorAvatarAndName
-                            name={currUserProfile?currUserProfile.name:undefined}
+                            name={currUserProfile?currUserProfile.name:'You need to login'}
                             img={currUserProfile?currUserProfile.avatar:undefined}
                           />
                           <NumOfPlayers/>
@@ -115,8 +116,16 @@ class Step2 extends Component {
 
 
 export default withTracker((props)=>{
-  currUserProfile = Users.findOne({meteorUserId: Meteor.userId()})
+  let currUserProfile
+  let clubOfUser
+  if(Meteor.userId()){
+    currUserProfile = Users.findOne({meteorUserId: Meteor.userId()})
+    if(currUserProfile){
+      clubOfUser = Clubs.findOne({founderId: currUserProfile._id})
+    }
+  }
   return{
-    currUserProfile
+    currUserProfile,
+    clubOfUser
   }
 })(Step2)
