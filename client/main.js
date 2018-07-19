@@ -10,6 +10,7 @@ import Home from '../imports/ui/Home';
 import GroundDetail from '../imports/ui/GroundDetail';
 import Matchs from '../imports/ui/Matchs';
 import '../imports/startup/accounts-config.js';
+import Dashboard from '../imports/ui/Dashboard';
 
 
 Meteor.startup(() => {
@@ -21,7 +22,8 @@ Meteor.startup(() => {
               <Switch>
                   <Route exact path='/' render={() =>< Home />}/>
                   <Route exact path='/GroundDetail/:groundID' render={() => <GroundDetail/>}/>
-                  <Route exact path='/Matchs' render={() => <Matchs/>}/>
+                  <Route exact path='/matchs' render={() => <Matchs/>}/>
+                  <Route exact path='/dashboard' render={() => <Dashboard/>}/>
               </Switch>
           </App>
         </Router>, document.getElementById('root'));

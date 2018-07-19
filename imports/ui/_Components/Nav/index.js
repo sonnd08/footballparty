@@ -45,7 +45,11 @@ class Nav extends Component {
                         <Link to="/">grounds</Link>
                       </li>
                       <li>messages</li>
-                      <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
+                      {this.props.currUser
+                        ? <Link to="/dashboard"><li >Dashboard</li></Link>
+                        : <li className="active" onClick={this.showUpcomingModal}>upcoming</li>
+                      }
+                      
                     </ul>
                   </div>
                 </div>
