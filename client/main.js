@@ -11,6 +11,7 @@ import GroundDetail from '../imports/ui/GroundDetail';
 import Matchs from '../imports/ui/Matchs';
 import '../imports/startup/accounts-config.js';
 import Dashboard from '../imports/ui/Dashboard';
+import CustomRegister from '../imports/ui/CustomRegister';
 
 
 Meteor.startup(() => {
@@ -24,6 +25,7 @@ Meteor.startup(() => {
                   <Route exact path='/GroundDetail/:groundID' render={() => <GroundDetail/>}/>
                   <Route exact path='/matchs' render={() => <Matchs/>}/>
                   <Route exact path='/dashboard' render={() => <Dashboard/>}/>
+                  <Route exact path='/register' render={() => <CustomRegister/>}/>
               </Switch>
           </App>
         </Router>, document.getElementById('root'));
